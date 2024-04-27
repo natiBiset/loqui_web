@@ -1,0 +1,29 @@
+.microphone-form {
+    display: flex;
+    margin-left: 22rem;
+    gap:100px;
+    padding-left: 200px;
+    align-items: center;
+    /* width: 300px; */
+    margin-top: 40px;
+    background: transparent;
+}
+.recordButton{
+    border-radius: 20%;
+}
+.recordButton:hover{
+    background-color:#333 ;
+}
+.recordButton img {
+    width: 40px;
+    
+}
+.stopButton{
+    border-radius: 20%;
+}
+.stopButton img{
+    width: 40px;
+}
+.stopButton:hover{
+    background-color:#333 ;
+}

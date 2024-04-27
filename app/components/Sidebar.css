@@ -1,0 +1,106 @@
+.sidebar {
+  
+    position: fixed;
+    width:17rem;
+    height:38rem;
+    /* width: 250px; */
+    /* height: 100vh; */
+    padding: 10px;
+    margin-left: 11px;
+    margin-top: 0.1rem;
+    /* margin-bottom: 20px; */
+    filter:drop-shadow(-5px -5px 5px rgba(0,0,0,0.25));
+    border-radius:10px;
+    background-image: linear-gradient(90deg,rgba(119,118,121,0.800000011920929)0%,rgba(0,0,0,1)100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 99;
+  }
+  
+  #company_name{
+    font-size: 2rem;
+    text-align: center;
+    color:#fff ;
+    font-weight: 700;
+  }
+  
+  #statement{
+    font: 'Jost';
+    font-size: 1rem;
+    /* font-weight: 100; */
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 40px;
+    margin-top: 0px;
+    color: #C0C0C0;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-color: #757479;
+    text-decoration-thickness: 3px;
+  
+  }
+  .menu-box{
+    /* display: block; */
+    text-decoration: none;
+    /* font-weight: 500; */
+    border-radius: 0px;
+    display: flex;
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 30px;
+    /* width: 35px; */
+    /* height: 35px; */
+  }
+  .menu-box ul{
+    list-style-type: none;
+  }
+  .menu-box ul li{
+    margin-bottom: 3px;
+    padding:5px;
+  }
+  
+  .menu-box ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Jost';
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-right: 20px;
+    padding-left: 2px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    display:inline-block;
+  }
+  
+  .menu-box ul li img{
+    /* position: fixed; */
+    vertical-align:bottom;
+    /* position: fixed; */
+    /* float: right; */
+    /* align-items: center; */
+    padding-right: 15px;
+    /* justify-content: center; */
+    padding-left: 12px;
+    /* padding-bottom: 10px; */
+  
+  }
+  #chat-menu img{
+    padding-right: 15px;
+    /* justify-content: center; */
+    padding-left: 30px;
+  }
+  .menu-box ul li a:hover {
+    background-color: #333;
+    padding: 0px;
+  }
+  
+  .menu-box li a i {
+    margin-right: 20px;
+  }
+  
+  .menu-box li a.active {
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-color: #757479;
+    text-decoration-thickness: 2px;
+    /* border: solid; */
+  }

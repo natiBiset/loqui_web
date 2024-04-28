@@ -21,6 +21,7 @@
     width: 45rem;
     height: 30rem;
     overflow-y: auto;
+    padding-bottom: 2rem;
 }
 
 .user-message {

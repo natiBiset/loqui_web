@@ -1,5 +1,5 @@
 import "./ChatBox.css"
-import Loader from "./Loader"
+import Loaders from "./Loader"
 import VideoPlayer from "./Videoplayer"
 
 // import InputForm from "./InputForm"
@@ -10,7 +10,7 @@ export default function ChatBox(){
     <div className="chat-box">
         {/* <VideoPlayer /> */}
 	    <div className="message-area"></div>
-        <Loader page = {'chat'} />
+        <Loaders page = {'chat'} />
 	    {/* <InputForm /> */}
 	</div>
     )

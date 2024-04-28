@@ -26,6 +26,8 @@ function handleInput(userMessage){
     // const loaderNode = ReactDOM.render(<l-ring size='60' color="coral"></l-ring>, document.createElement('div'));
     const messageBox = document.querySelector(".message-area");
     const newMessage = document.createElement('div');
+    const chatLoader = document.querySelector(".chat_loader");
+    chatLoader.style.display = "block";
     newMessage.classList.add('user-message');
     newMessage.textContent = userMessage;
     messageBox.appendChild(newMessage);
@@ -42,6 +44,7 @@ function handleInput(userMessage){
     })})
     replyPromise.then((reply) =>{
     let i = 0;
+    chatLoader.style.display = "none";
     const interval = setInterval(() => {
         if ( i < reply.length ) {
             replyMessage.innerHTML += reply[i];

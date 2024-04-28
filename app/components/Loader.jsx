@@ -1,11 +1,8 @@
-export default function Loader({page}){
+import './Loader.css'
+export default function Loaders({page}){
     if (page === 'chat'){
         return (
-        <div className="loading-dots">
-		    <div className="dot"></div>
-		    <div className="dot"></div>
-		    <div className="dot"></div>
-	    </div>
+        <span className="chat_loader" style={{display:"none"}}></span>
         )
     }
     else if(page === 'audio'){
@@ -15,7 +12,7 @@ export default function Loader({page}){
     }
     else if (page === 'video'){
         return (<>
-        
+        <span className="video_loader" style={{display:"none"}}></span>
         </>
         )
     }

@@ -31,6 +31,10 @@ function handleInput(userMessage){
     const messageBox = document.querySelector(".video-message-area");
     const video = document.getElementById("my-video");
     const newMessage = document.createElement('div');
+    const videoLoader = document.querySelector(".video_loader");
+    const chatLoader = document.querySelector(".chat_loader");
+    chatLoader.style.display = "block";
+    videoLoader.style.display = "block";
     newMessage.classList.add('user-message');
     newMessage.textContent = userMessage;
     messageBox.appendChild(newMessage);
@@ -58,6 +62,7 @@ function handleInput(userMessage){
                 }
                 console.log(replye)
                 let i = 0;
+                chatLoader.style.display = "none";
                 const interval = setInterval(() => {
                     typing = true
             if ( i < replye.length ) {
@@ -85,7 +90,9 @@ function handleInput(userMessage){
                 const videoURL = URL.createObjectURL(blob);
                 video.src = videoURL;
                 // loadingDotsVideo.style.display = "none";
+                videoLoader.style.display = "none";
                 video.play();
+                
         }
         
         

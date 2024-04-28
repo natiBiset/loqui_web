@@ -1,5 +1,5 @@
 import "./VideoChatBox.css"
-import Loader from "./Loader"
+import Loaders from "./Loader"
 import VideoPlayer from "./Videoplayer"
 
 // import InputForm from "./InputForm"
@@ -10,7 +10,7 @@ export default function VideoChatBox(){
     <div className="chat-box">
         <VideoPlayer />
 	    <div className="video-message-area"></div>
-        <Loader page = {'chat'} />
+        <Loaders page = {'chat'} />
 	    {/* <InputForm /> */}
 	</div>
     )

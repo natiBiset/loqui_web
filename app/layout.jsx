@@ -1,6 +1,9 @@
 // import { Inter } from "next/font/google";
 import "./globals.css";
 
+  
+
+
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -14,7 +17,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+      </head>
       <body>{children}</body>
-    </html>
+      {/* <script src="app/audio-chat/volume-meter.js"></script>
+	    <script src="../app/audio-chat/audioDetectionConfig.js"></script>
+		  <script src="./audioDetection.js"></script>
+		  <script src="../app/audio-chat/audioStream.js"></script>
+
+		  <script src="../app/audio-chat/demoAudioRecorder.js"></script>
+		  <script src="../app/audio-chat/demoAudioDetectionListeners.js"></script> */}
+      </html>
   );
 }

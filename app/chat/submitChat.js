@@ -2,15 +2,20 @@ import { io } from "socket.io-client";
 const socket = io('ws://34.195.113.89/socket.io');
 
 
+
 var content = {
-    ID:'sample2',
-    username: 'mike',
+    // ID:'sample8',
     gender:'f',
     lang:'en-us',
     is_cloned:'no',
     // video:'no'
   }
-async function load_chat(){    
+async function load_chat(userName,userID){   
+    if (!userID){
+        return
+    }
+    content.ID = userID
+    content.username = userName 
     socket.on('connect', () => {
         console.log('Successfully connected to the Socket.IO server!');
     });
@@ -22,6 +27,17 @@ async function load_chat(){
 
     });
   }
+
+export function handleSignUp(e){
+    const modal = document.querySelector(".modal");
+    modal.style.display = "none";
+    const form = document.querySelector("form") 
+    const userInput = e.target.querySelector('input[type="text"]').value;
+    e.target.reset() 
+    console.log('user is ', userInput)
+    
+
+}
 function handleInput(userMessage){
     // const loaderNode = ReactDOM.render(<l-ring size='60' color="coral"></l-ring>, document.createElement('div'));
     const messageBox = document.querySelector(".message-area");

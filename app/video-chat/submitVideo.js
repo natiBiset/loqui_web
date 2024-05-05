@@ -6,15 +6,20 @@ import ReactDOM from 'react-dom';
 
 
 var content = {
-    ID:'male',
-    username: 'mike',
+    // ID:'male',
+    // username: 'mike',
     gender:'f',
     lang:'en-us',
     is_cloned:'no',
     video:'yes',
     audio:'yes'
   }
-async function load_chat(){    
+async function load_chat(userName,userID){  
+    if (!userID){
+        return
+    }
+    content.ID = userID
+    content.username = userName;  
     socket.on('connect', () => {
         console.log('Successfully connected to the Socket.IO server!');
     });

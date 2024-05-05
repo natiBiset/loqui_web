@@ -1,16 +1,21 @@
 'use client'
+import { FaMicrophone } from "react-icons/fa6";;
 import './AudioInput.css'
-
-export default function AudioForm(){
+import { record,suspendRecording,load_chat } from '../audio-chat/submitAudio'
+// import { load_chat } from '../audio';
+import { useEffect } from "react";
+export default function AudioForm({userName,userID}){
+	useEffect(()=>{load_chat(userName,userID)})
     return (
         <div className="microphone-form">
-		       <form>
-			        <button type="button" className="recordButton">
-			            <img src = "/phone-call.png" alt="Microphone"/>
+		       <form onSubmit={ (e) => { e.preventDefault(); record(e); }}>
+			        <button type="submit" className="recordButton" >
+			            <img src = "/microphone.svg" alt="Microphone"/>
+						{/* < FaMicrophone value = {{className :"microphone-icon"}}/> */}
 			        </button>
 		       </form>
 		       <form>
-			        <button type="button" className="stopButton">
+			        <button type="button" className="stopButton" onClick={suspendRecording}>
 			            <img src = "/stop-button.png" alt="Stop"/>
 		            </button>
 			    </form>

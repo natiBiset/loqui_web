@@ -5,8 +5,8 @@ import { useEffect } from "react"
 import { load_chat } from '../chat/submitChat';
 
 
-export default function InputForm(){
-    useEffect(()=>{load_chat()})
+export default function InputForm({userName,userID}){
+    useEffect(()=>{load_chat(userName,userID)})
     function handleSubmit(e){
         e.preventDefault();
         const userInput = e.target.querySelector('input[type="text"]').value;

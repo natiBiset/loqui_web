@@ -1,7 +1,7 @@
 .microphone-form {
     display: flex;
     margin-left: 22rem;
-    gap:100px;
+    gap:250px;
     padding-left: 200px;
     align-items: center;
     /* width: 300px; */
@@ -9,21 +9,46 @@
     background: transparent;
 }
 .recordButton{
-    border-radius: 20%;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+}
+.stopButton{
+    background: transparent;
+    border: none;
 }
 .recordButton:hover{
     background-color:#333 ;
+    /* background: transparent; */
+    border: none;
+    border-radius: 20%;
 }
 .recordButton img {
     width: 40px;
+    color: blue;
+    border-radius: 50%;
+    background-image: transparent;
+    background-color: #ffffff9c ;
+    padding: 10px
+    /* background-color: blue;
+    padding:0px; */
     
 }
+.recordButton .active{
+   background-color: #95e61480;
+}
+
+
 .stopButton{
     border-radius: 20%;
 }
 .stopButton img{
     width: 40px;
+    background-color: #f50c0c;
+    border-radius: 50%;
+    padding: 10px
 }
 .stopButton:hover{
     background-color:#333 ;
+    border-radius: 20%;
 }

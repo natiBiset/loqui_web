@@ -4,7 +4,7 @@ import Profile from './Profile'
 import { usePathname} from 'next/navigation';
 
 
-export default function Sidebar(){
+export default function Sidebar({userName}){
     
     const pathname = usePathname();
     console.log(`this is the current page : ${pathname}`)
@@ -36,7 +36,7 @@ export default function Sidebar(){
                 </ul>
             </nav>
             
-            <Profile />
+            <Profile userName={userName} />
 
         </div>
     )

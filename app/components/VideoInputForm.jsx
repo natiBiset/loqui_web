@@ -5,8 +5,8 @@ import { useEffect } from "react"
 import { load_chat } from '../video-chat/submitVideo';
 
 
-export default function VideoInputForm(){
-    useEffect(()=>{load_chat()})
+export default function VideoInputForm({userName,userID}){
+    useEffect(()=>{load_chat(userName,userID)})
     function handleSubmit(e){
         e.preventDefault();
         const userInput = e.target.querySelector('input[type="text"]').value;

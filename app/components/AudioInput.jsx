@@ -10,13 +10,16 @@ export default function AudioForm({userName,userID}){
         <div className="microphone-form">
 		       <form onSubmit={ (e) => { e.preventDefault(); record(e); }}>
 			        <button type="submit" className="recordButton" >
+						
 			            <img src = "/microphone.svg" alt="Microphone"/>
+						<div className="start-button-text">Start</div>
 						{/* < FaMicrophone value = {{className :"microphone-icon"}}/> */}
 			        </button>
 		       </form>
 		       <form>
 			        <button type="button" className="stopButton" onClick={suspendRecording}>
 			            <img src = "/stop-button.png" alt="Stop"/>
+						<div className="stop-button-text">Stop</div>
 		            </button>
 			    </form>
 	    </div>

@@ -19,7 +19,7 @@ export default function VideoInputForm({userName,userID}){
     return(
         <div className="input-form">
 	        <form onSubmit={handleSubmit}>
-		        <input type="text" id="message" placeholder="Enter your message" autoComplete="off" autoFocus/>
+		        <input type="text" id="message" placeholder="Start writting..." autoComplete="off" autoFocus/>
 		        <button type="submit" id="submitButton">
 		            <img src = "send.png" alt="Submit" />
 		        </button>

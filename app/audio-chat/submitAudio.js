@@ -937,7 +937,7 @@ function audioRecorder(stream) {
             let replye;
             let audReplye;
             socket.on('message',(response2)=>{
-            suspendRecording()
+            // suspendRecording()
               console.log(typeof response2)
               console.log(response2)
               if (typeof response2 === 'string'){
@@ -983,13 +983,15 @@ function audioRecorder(stream) {
                     audio.play()
                     // audio.addEventListener("ended",()=>{
                     // playing = false;
-                    // resumeRecording()
+                    
 
                 }
                 
               }}
+              
             )
             resumeRecording()
+           
             
              }
    

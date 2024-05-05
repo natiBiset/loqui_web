@@ -37,7 +37,12 @@
 .recordButton .active{
    background-color: #95e61480;
 }
-
+.start-button-text{
+    color:#fff;
+}
+.stop-button-text{
+    color:#fff;
+}
 
 .stopButton{
     border-radius: 20%;

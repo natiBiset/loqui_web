@@ -2,7 +2,7 @@
   
     position: fixed;
     width:17rem;
-    height:38rem;
+    height:95vh;
     /* width: 250px; */
     /* height: 100vh; */
     padding: 10px;
@@ -17,7 +17,7 @@
   }
   
   #company_name{
-    font-size: 2rem;
+    font-size: 1.7rem;
     text-align: center;
     color:#fff ;
     font-weight: 700;
@@ -29,7 +29,7 @@
     /* font-weight: 100; */
     text-align: center;
     margin-left: 0px;
-    margin-right: 40px;
+    margin-right: 10px;
     margin-top: 0px;
     color: #C0C0C0;
     text-decoration: underline;
@@ -62,7 +62,7 @@
     color: white;
     text-decoration: none;
     font-family: 'Jost';
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
     padding-right: 20px;
     padding-left: 2px;
@@ -80,16 +80,18 @@
     padding-right: 15px;
     /* justify-content: center; */
     padding-left: 12px;
+    width: 3rem;
     /* padding-bottom: 10px; */
   
   }
   #chat-menu img{
     padding-right: 15px;
+    width: 4rem;
     /* justify-content: center; */
     padding-left: 30px;
   }
   .menu-box ul li a:hover {
-    background-color: #333;
+    /* background-color: #333; */
     padding: 0px;
   }
   

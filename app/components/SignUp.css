@@ -1,4 +1,5 @@
 .modal {
+  /* border: blue solid 3px; */
     position: fixed;
     top: 0;
     left: 0;
@@ -11,49 +12,91 @@
     align-items: center;
     z-index: 999;
     color: black;
+    animation: slide-up 0.3s ease-in-out;
+    
+    
   }
 
-  .modal-content {
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+    }
+    to{
+      transform: translateY(0);
+    }
+    
+  }
+
+  /* .modal-content {
+   
+     */
+
+  /* } */
+  .modal-content{
     background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    width: 20rem;
-    height: 10rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    /* border: red solid 3px; */
+    background-color: #fff;
+    padding: 0px;
+    border-radius: 10px;
+    width: 25rem;
+    height: 10rem;
     align-content: center;
+   
 
   }
+
   .modal-text{
     color: #0b0b0eef;
     text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    /* border: green solid 3px; */
   }
 
   .modal-content form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 8rem;
+    width: 100%;
     margin: 0 auto;
     align-items: center;
+    /* border: yellow solid 3px; */
+    
+    
   }
+  /* .model-form{
+    border: yellow solid 3px;
+
+  } */
 
   .modal-content input {
     padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 100px;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+    font-family: 'Jost',Arial, sans-serif;
+    font-size: 1rem;
   }
 
   .modal-content button {
     /* padding: 5px 10px; */
     background-color: #e8ebee;
-    width: 10rem;
-    color: #ffffff1f;
-    border: none;
     border-radius: 10px;
     margin: 0 auto;
     color: black;
-    margin-left: 3rem;
-    margin-top: -1.3rem;
+    width: 10rem;
+    height: 2rem;
+    /* border: 2px #000 solid; */
+    /* margin-left: 3rem;
+    margin-top: -1.3rem; */
     /* cursor: pointer; */
     /* margin-left: 20px; */
   }
+.modal-content button:hover{
+  background-color:  #0b0b0eef;
+  color: white;
+}

@@ -24,7 +24,7 @@
 .input-form input:focus{
     outline: none;
 }
-button[type="submit"] {
+.input-form button[type="submit"] {
     position: relative;
     /* align-self: flex-end; */
     border: none;

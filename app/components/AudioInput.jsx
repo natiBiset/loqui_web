@@ -1,7 +1,7 @@
 'use client'
 import { FaMicrophone } from "react-icons/fa6";;
 import './AudioInput.css'
-import { record,suspendRecording,load_chat } from '../audio-chat/submitAudio'
+import { record,suspendRecording,load_chat } from '../chat-audio/submitAudio'
 // import { load_chat } from '../audio';
 import { useEffect } from "react";
 export default function AudioForm({userName,userID}){

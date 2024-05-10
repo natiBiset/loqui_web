@@ -1,8 +1,8 @@
 'use client'
 import './InputForm.css'
-import {handleInput} from '../video-chat/submitVideo';
+import {handleInput} from '../chat-video/submitVideo';
 import { useEffect } from "react"
-import { load_chat } from '../video-chat/submitVideo';
+import { load_chat } from '../chat-video/submitVideo';
 
 
 export default function VideoInputForm({userName,userID}){

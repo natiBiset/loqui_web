@@ -1,5 +1,5 @@
 .chat-box{
-    width: 70%;
+    width: 76.5%;
     height: 20%;
     /* border: red dashed 3px; */
     /* height: 100px; */
@@ -19,9 +19,10 @@
     margin-top: 1rem;
     /* margin-bottom: 1rem; */
     margin-left: 0.5rem;
-    width: 43rem;
+    width: 64rem;
     height: 30rem;
     overflow-y: auto;
+    padding-right:22rem;
 }
 
 .user-message {

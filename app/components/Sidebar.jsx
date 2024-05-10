@@ -22,13 +22,13 @@ export default function Sidebar({userName}){
                         </a>
                     </li>
                     <li id="audio-menu" >
-                        <a href="/audio-chat" className={pathname == "/audio-chat" ? "active" : ""}>
+                        <a href="/chat-audio" className={pathname == "/chat-audio" ? "active" : ""}>
                             New Audio Chat
                             <img src="mic.png" alt="mic_Image"></img>
                         </a>
                     </li>
                     <li id="video-menu" >
-                        <a href="/video-chat" className={pathname == "/video-chat" ? "active" : ""} >
+                        <a href="/chat-video" className={pathname == "/chat-video" ? "active" : ""} >
                             New Video Chat
                             <img src="video.png" alt="video_Image"/>
                         </a>

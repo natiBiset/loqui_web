@@ -43,10 +43,12 @@ function handleInput(userMessage){
     const messageBox = document.querySelector(".message-area");
     const newMessage = document.createElement('div');
     const chatLoader = document.querySelector(".chat_loader");
+    document.getElementById("message").placeholder = "Continue writing...";
     chatLoader.style.display = "block";
     newMessage.classList.add('user-message');
     newMessage.textContent = userMessage;
     messageBox.appendChild(newMessage);
+    messageBox.scrollTo(0,messageBox.scrollHeight)
     // messageBox.appendChild(loaderNode)
     const replyMessage = document.createElement('div');
     replyMessage.classList.add('ai-message');
@@ -58,7 +60,7 @@ function handleInput(userMessage){
         resolve(response.content) 
         
     })})
-    document.getElementById("message").placeholder = "Continue writing...";
+    
 
     replyPromise.then((reply) =>{
     let i = 0;
@@ -66,14 +68,18 @@ function handleInput(userMessage){
     const interval = setInterval(() => {
         if ( i < reply.length ) {
             replyMessage.innerHTML += reply[i];
+            messageBox.scrollTo(0,messageBox.scrollHeight)
               i++;
             } else {
+                // messageBox.scrollTo(0,messageBox.scrollHeight)
                 document.querySelector('input').disabled = false;
+                document.getElementById("message").focus();
                 document.querySelector('input').style.cursor = 'text';
                 clearInterval(interval);
             }
           }, 50);	
     messageBox.appendChild(replyMessage);
+    
     
 })
 document.querySelector('input').disabled = true;

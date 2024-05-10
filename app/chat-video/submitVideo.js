@@ -44,6 +44,7 @@ function handleInput(userMessage){
     newMessage.classList.add('user-message');
     newMessage.textContent = userMessage;
     messageBox.appendChild(newMessage);
+    messageBox.scrollTo(0,messageBox.scrollHeight)
     // messageBox.appendChild(loaderNode)
     const replyMessage = document.createElement('div');
     replyMessage.classList.add('ai-message');
@@ -73,6 +74,7 @@ function handleInput(userMessage){
                     typing = true
             if ( i < replye.length ) {
                 replyMessage.innerHTML += replye[i];
+                messageBox.scrollTo(0,messageBox.scrollHeight)
                   i++;
                 } else {
                     document.querySelector('input').disabled = false;

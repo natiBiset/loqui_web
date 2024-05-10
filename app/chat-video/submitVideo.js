@@ -38,6 +38,7 @@ function handleInput(userMessage){
     const newMessage = document.createElement('div');
     const videoLoader = document.querySelector(".video_loader");
     const chatLoader = document.querySelector(".chat_loader");
+    document.getElementById("message").placeholder = "Continue writing...";
     chatLoader.style.display = "block";
     videoLoader.style.display = "block";
     newMessage.classList.add('user-message');

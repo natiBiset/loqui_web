@@ -58,6 +58,8 @@ function handleInput(userMessage){
         resolve(response.content) 
         
     })})
+    document.getElementById("message").placeholder = "Continue writing...";
+
     replyPromise.then((reply) =>{
     let i = 0;
     chatLoader.style.display = "none";

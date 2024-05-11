@@ -1,7 +1,7 @@
 'use client'
 import { FaMicrophone } from "react-icons/fa6";;
 import './AudioInput.css'
-import { record,suspendRecording,load_chat } from '../chat-audio/submitAudio'
+import { record,suspendRecordingBtn,load_chat,abortRecordingBtn } from '../chat-audio/submitAudio'
 // import { load_chat } from '../audio';
 import { useEffect } from "react";
 export default function AudioForm({userName,userID}){
@@ -17,7 +17,7 @@ export default function AudioForm({userName,userID}){
 			        </button>
 		       </form>
 		       <form>
-			        <button type="button" className="stopButton" onClick={suspendRecording}>
+			        <button type="button" className="stopButton" onClick={abortRecordingBtn}>
 			            <img src = "/stop-button.png" alt="Stop"/>
 						<div className="stop-button-text">Stop</div>
 		            </button>

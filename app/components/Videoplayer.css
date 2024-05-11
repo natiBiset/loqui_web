@@ -21,4 +21,9 @@
     object-fit: contain;
     border-radius: 30px;
     background-image: transparent;
+    opacity: 1;
+
+}
+.video-player video.ended{
+    opacity: 0;
 }

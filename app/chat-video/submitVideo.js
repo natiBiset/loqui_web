@@ -40,7 +40,7 @@ function handleInput(userMessage){
     const chatLoader = document.querySelector(".chat_loader");
     document.getElementById("message").placeholder = "Continue writing...";
     chatLoader.style.display = "block";
-    videoLoader.style.display = "block";
+    // videoLoader.style.display = "block";
     newMessage.classList.add('user-message');
     newMessage.textContent = userMessage;
     messageBox.appendChild(newMessage);
@@ -96,10 +96,18 @@ function handleInput(userMessage){
                 console.log("its a video, processing")
                 const blob = new Blob([replye]);
                 const videoURL = URL.createObjectURL(blob);
+                video.loop = false;
                 video.src = videoURL;
                 // loadingDotsVideo.style.display = "none";
-                videoLoader.style.display = "none";
+                // videoLoader.style.display = "none";
+                video.muted = false;
                 video.play();
+                video.addEventListener('ended',()=>{
+                    video.muted = true;
+                    video.src = '/sample_loop.mp4'
+                    video.play()
+                })
+
                 
         }
         

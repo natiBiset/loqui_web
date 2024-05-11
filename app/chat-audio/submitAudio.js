@@ -72,6 +72,8 @@ function record(){
         const dBV = dB(event.detail.volume)
       
         const line = hystogramLine(volume)
+        // const blob = event
+        // console.log('blob',blob)
       
         if (debuglog)
           console.log(`signal  ${timestamp} ${items} ${volume} ${dBV} ${line}`)
@@ -162,7 +164,7 @@ function record(){
         // document.querySelector('#recording').style.color = 'white'
         // document.querySelector('#recording').textContent = 'start'
       
-        //startRecording()
+        startRecording()
       
       })
       
@@ -230,6 +232,8 @@ function record(){
       // mutedmic handler
       //
       document.addEventListener('mutedmic', event => {
+        const recordButton = document.querySelector('.recordButton img');
+        recordButton.classList.remove('active')
       
         // document.querySelector('#microphonestatus').textContent = 'muted (off)'
         // document.querySelector('#microphonestatus').style.background = 'red'
@@ -244,6 +248,8 @@ function record(){
       // unmutedmic handler
       //
       document.addEventListener('unmutedmic', event => {
+        const recordButton = document.querySelector('.recordButton img');
+        recordButton.classList.add('active')
       
         // document.querySelector('#microphonestatus').textContent = 'unmuted (on)'
         // document.querySelector('#microphonestatus').style.background = 'green'
@@ -879,9 +885,9 @@ function audioRecorder(stream) {
   
   
   function onRecordingReady(e) {
-    const recordButton = document.querySelector('.recordButton');
+    const recordButton = document.querySelector('.recordButton img');
     // stopButton = document.getElementById('stopButton');
-    recordButton.classList.add('active');
+    // recordButton.classList.add('active');
     // stopButton.disabled = true
     // listen recording (audio play) 
     // just if speech is not aborted
@@ -916,81 +922,81 @@ function audioRecorder(stream) {
         .then(text => {if (text['text'].trim()){
             console.log(text['text']);
             
-            let message = text['text'];
-            // message = 'how are you doing?'
-            socket.off('message')
-            formData.delete('audio');
-            const messageBox = document.querySelector(".message-area");
-            const newMessage = document.createElement('div');
+            // let message = text['text'];
+            // // message = 'how are you doing?'
+            // socket.off('message')
+            // formData.delete('audio');
+            // const messageBox = document.querySelector(".message-area");
+            // const newMessage = document.createElement('div');
             
-            const audio = document.createElement('audio');
-	          const replyMessage = document.createElement('div');
-	          newMessage.classList.add('user-message');
-	          replyMessage.classList.add('ai-message');
-	          newMessage.textContent = message;
-	          messageBox.appendChild(newMessage);
-            content.message = message;
-            socket.emit('message',content);
-            let reply = {'text':[],'audio':[]}
-            let typing = false;
-            let playing = false;
-            let replye;
-            let audReplye;
-            socket.on('message',(response2)=>{
-            // suspendRecording()
-              console.log(typeof response2)
-              console.log(response2)
-              if (typeof response2 === 'string'){
-                reply['text'].push(response2)
-                while(reply['text'].length > 0){
-                  if (!typing){
-                      replye = reply['text'].shift()
-                  }
-                  else{
-                      continue;
-                  }
-                  console.log(replye)
-                  let i = 0;
-                  // chatLoader.style.display = "none";
-                  const interval = setInterval(() => {
-                  typing = true
-                  if ( i < replye.length ) {
-                      replyMessage.innerHTML += replye[i];
-                      i++;
-                    } 
-                  else {
-                      clearInterval(interval);
-                      typing  = false;
+            // const audio = document.createElement('audio');
+	          // const replyMessage = document.createElement('div');
+	          // newMessage.classList.add('user-message');
+	          // replyMessage.classList.add('ai-message');
+	          // newMessage.textContent = message;
+	          // messageBox.appendChild(newMessage);
+            // content.message = message;
+            // socket.emit('message',content);
+            // let reply = {'text':[],'audio':[]}
+            // let typing = false;
+            // let playing = false;
+            // let replye;
+            // let audReplye;
+            // socket.on('message',(response2)=>{
+            // // suspendRecording()
+            //   console.log(typeof response2)
+            //   console.log(response2)
+            //   if (typeof response2 === 'string'){
+            //     reply['text'].push(response2)
+            //     while(reply['text'].length > 0){
+            //       if (!typing){
+            //           replye = reply['text'].shift()
+            //       }
+            //       else{
+            //           continue;
+            //       }
+            //       console.log(replye)
+            //       let i = 0;
+            //       // chatLoader.style.display = "none";
+            //       const interval = setInterval(() => {
+            //       typing = true
+            //       if ( i < replye.length ) {
+            //           replyMessage.innerHTML += replye[i];
+            //           i++;
+            //         } 
+            //       else {
+            //           clearInterval(interval);
+            //           typing  = false;
     
-                    }
-                  }, 30);
-                  messageBox.appendChild(replyMessage);
+            //         }
+            //       }, 30);
+            //       messageBox.appendChild(replyMessage);
                   
-                  message = '';
+            //       message = '';
                   
-            }
-              }
-              else{
-                reply['audio'].push(response2)
-                while(reply['audio'].length > 0){
-                    audReplye = reply['audio'].shift()
-                    console.log("its a audio, processing")
-                    const blob = new Blob([audReplye]);
-                    const audioURL = URL.createObjectURL(blob);
-                    audio.src = audioURL;
-                    // playing = true;
-                    console.log('playing audio')
-                    audio.play()
-                    // audio.addEventListener("ended",()=>{
-                    // playing = false;
+            // }
+            //   }
+            //   else{
+            //     reply['audio'].push(response2)
+            //     while(reply['audio'].length > 0){
+            //         audReplye = reply['audio'].shift()
+            //         console.log("its a audio, processing")
+            //         const blob = new Blob([audReplye]);
+            //         const audioURL = URL.createObjectURL(blob);
+            //         audio.src = audioURL;
+            //         // playing = true;
+            //         console.log('playing audio')
+            //         audio.play()
+            //         // audio.addEventListener("ended",()=>{
+            //         // playing = false;
                     
 
-                }
+            //     }
                 
-              }}
+            //   }}
               
-            )
-            resumeRecording()
+            // )
+            // resumeRecording()
            
             
              }
@@ -1015,6 +1021,8 @@ function audioRecorder(stream) {
   
   
   function startRecording() {
+    // const recordButton = document.querySelector('.recordButton img');
+    // recordButton.classList.add('active')
     recorder.start()
   }
   
@@ -1058,12 +1066,21 @@ function audioRecorder(stream) {
         // DEFAULT_PARAMETERS_CONFIGURATION.recordingEnabled = false
     
   // }
-  
+  export function abortRecordingBtn(){
+    const recordButton = document.querySelector('.recordButton img');
+    recordButton.classList.remove('active')
+    abortRecording()
+  }
   
   // to suspend recording when the system play audio with a loudspeaker, avoiding feedback
- export  function suspendRecording() {
+ export  function suspendRecordingBtn() {
+  const recordButton = document.querySelector('.recordButton img');
+  recordButton.classList.remove('active')
     DEFAULT_PARAMETERS_CONFIGURATION.recordingEnabled = false
   }  
+  function suspendRecording() {
+      DEFAULT_PARAMETERS_CONFIGURATION.recordingEnabled = false
+    } 
   
   
   function resumeRecording() {

@@ -7,8 +7,8 @@ export default function VideoPlayer(){
         <div className="video-player">
 			<Loaders page = {'video'} />
 
-	        <video id ="my-video">
-		        <source src="" type="video/mp4" />
+	        <video id ="my-video" muted autoPlay loop>
+		        <source src="/sample_loop.mp4" type="video/mp4" />
 	        </video>
         </div>
     )

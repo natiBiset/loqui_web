@@ -62,6 +62,7 @@ function record(){
     } catch (e) {
         alert('getUserMedia threw exception :' + e);
     }
+    console.log("connecting")
   
 
     document.addEventListener('signal', event => {
@@ -101,6 +102,8 @@ function record(){
       
         if (debuglog)
           console.log(`silence ${timestamp} ${items} ${volume} ${dBV}`)
+        // const recordButton = document.querySelector('.recordButton img');
+        // recordButton.classList.remove('active')
       
         // document.querySelector('#audiostatuscell').style.background = 'black'
         // document.querySelector('#audiostatuscell').style.color = 'white'
@@ -141,8 +144,10 @@ function record(){
           console.log(`%cPRE SPEECH START   ${timestamp}`, 'color:blue')
       
         }  
+        if (recorder){
+          restartRecording()
+        }
         
-        restartRecording()
       
       })
       
@@ -157,6 +162,8 @@ function record(){
           //speechstartTime = event.detail.timestamp
           console.log('%cSPEECH START', 'color:greenyellow')
         }  
+        // const recordButton = document.querySelector('.recordButton img');
+        // recordButton.classList.add('active')
       
         // document.querySelector('#recordingcell').style.background = 'green'
         // document.querySelector('#recordingcell').style.color = 'white'
@@ -232,8 +239,8 @@ function record(){
       // mutedmic handler
       //
       document.addEventListener('mutedmic', event => {
-        const recordButton = document.querySelector('.recordButton img');
-        recordButton.classList.remove('active')
+        // const recordButton = document.querySelector('.recordButton img');
+        // recordButton.classList.remove('active')
       
         // document.querySelector('#microphonestatus').textContent = 'muted (off)'
         // document.querySelector('#microphonestatus').style.background = 'red'
@@ -921,6 +928,8 @@ function audioRecorder(stream) {
     .then(response => response.json())
         .then(text => {if (text['text'].trim()){
             console.log(text['text']);
+            resumeRecording() 
+            
             
             // let message = text['text'];
             // // message = 'how are you doing?'
@@ -1067,16 +1076,18 @@ function audioRecorder(stream) {
     
   // }
   export function abortRecordingBtn(){
-    const recordButton = document.querySelector('.recordButton img');
-    recordButton.classList.remove('active')
+    // const recordButton = document.querySelector('.recordButton img');
+    // recordButton.classList.remove('active')
     abortRecording()
   }
   
   // to suspend recording when the system play audio with a loudspeaker, avoiding feedback
  export  function suspendRecordingBtn() {
+  console.log("stoppppppppppppppppp")
   const recordButton = document.querySelector('.recordButton img');
   recordButton.classList.remove('active')
     DEFAULT_PARAMETERS_CONFIGURATION.recordingEnabled = false
+    recorder = null;
   }  
   function suspendRecording() {
       DEFAULT_PARAMETERS_CONFIGURATION.recordingEnabled = false

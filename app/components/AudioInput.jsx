@@ -17,7 +17,7 @@ export default function AudioForm({userName,userID}){
 			        </button>
 		       </form>
 		       <form>
-			        <button type="button" className="stopButton" onClick={abortRecordingBtn}>
+			        <button type="button" className="stopButton" onClick={suspendRecordingBtn}>
 			            <img src = "/stop-button.png" alt="Stop"/>
 						<div className="stop-button-text">Stop</div>
 		            </button>

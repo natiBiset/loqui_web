@@ -98,13 +98,15 @@ function handleInput(userMessage){
                 const videoURL = URL.createObjectURL(blob);
                 video.loop = false;
                 video.src = videoURL;
+                video.currentTime = 0.2;
                 // loadingDotsVideo.style.display = "none";
                 // videoLoader.style.display = "none";
                 video.muted = false;
                 video.play();
                 video.addEventListener('ended',()=>{
                     video.muted = true;
-                    video.src = '/sample_loop.mp4'
+                    video.src = '/silence.mp4'
+                    video.currentTime = 0.1;
                     video.play()
                 })
 

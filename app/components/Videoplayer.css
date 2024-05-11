@@ -17,13 +17,14 @@
 }
 .video-player video {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 30px;
+    height: auto;
+    /* object-fit: fill; */
+    border-radius:0px 20px 20px 20px ;
+    /* border-radius: 30px; */
     background-image: transparent;
-    opacity: 1;
+    
 
 }
 .video-player video.ended{
-    opacity: 0;
+    opacity: 1;
 }

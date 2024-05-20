@@ -237,7 +237,7 @@
   width: 6px;
   margin: 0px 4px;
   border-radius: 5px;
-  animation: silence 1.2s infinite ease-in-out;
+  animation: think 1.2s infinite ease-in-out;
 
 }
 
@@ -264,6 +264,10 @@
       opacity: 1;       
       height: 3px;        
   }
+}
+@keyframes think {
+  0%, 100% { transform: scale(2); }
+  50% { transform: scale(1.5); }
 }
 
 @keyframes moveHorizontal {

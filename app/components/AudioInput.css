@@ -48,7 +48,7 @@
       opacity: 1;
     }
   }
-.cloneButton{
+.speakerButton{
     background: transparent;
     border: none;
     border-radius: 50%;
@@ -63,7 +63,7 @@
     border: none;
     border-radius: 50%;
 }
-.cloneButton img:hover{
+.speakerButton img:hover{
     background-color:#333333 ;
     /* background: transparent; */
     border: none;
@@ -76,7 +76,7 @@
     border-radius: 50%;
 }
 
-.cloneButton img{
+.speakerButton img{
     width: 40px;
     border-radius: 50%;
     background-image: transparent;

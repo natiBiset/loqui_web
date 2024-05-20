@@ -1,0 +1,26 @@
+.option-bar {
+    position: fixed;
+    left: 80rem;
+    top: 20rem;
+    width: 40px;
+    background-color: hsla(0, 13%, 68%, 0.678);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.option{
+    position: relative;
+    padding-top: 1rem;
+    padding-bottom:1rem ;
+    /* padding: 15px 20px; */
+    color: white;
+    text-align: center;
+
+
+}
+#speaker img{
+    width: 20px;
+}
+.option:hover {
+    background-color: #0056b3;
+    
+}

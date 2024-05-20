@@ -28,8 +28,8 @@ export default function AudioForm({userName,userID}){
 		            </button>
 			    </Link>
 				<form>
-			        <button type="button" className="cloneButton" onClick={suspendRecordingBtn}>
-			            <img src = "/phone-call.png" alt="clone voice"/>
+			        <button type="button" className="speakerButton" onClick={suspendRecordingBtn}>
+			            <img src = "/speaker.svg" alt="various speakers"/>
 						{/* <div className="stop-button-text">Stop</div> */}
 		            </button>
 			    </form>

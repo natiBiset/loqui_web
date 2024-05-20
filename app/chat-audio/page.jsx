@@ -1,8 +1,8 @@
 import Sidebar from "../components/Sidebar"
-import ChatBox from "../components/ChatBox"
 import AudioForm from "../components/AudioInput";
 import { cookies } from "next/headers";
 import SignUp from "../components/SignUp";
+import AudioChatBox from "../components/AudioChatBox";
 export const metadata = {
     title: "LoquiLabs | Audio Chat",
     description: "Audio chat with LoquiAI",
@@ -30,7 +30,7 @@ export default function AudioChatPage(){
 <>
         {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>}
         <Sidebar userName={userName}/>
-        <ChatBox />
+        <AudioChatBox />
         <AudioForm userName={userName} userID={userID}/>
         
 

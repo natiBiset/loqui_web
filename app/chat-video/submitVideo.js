@@ -1,9 +1,5 @@
 import { io } from "socket.io-client";
-import UserMessage from "../components/UserMessage";
 const socket = io('ws://34.195.113.89/socket.io');
-
-import ReactDOM from 'react-dom';
-
 
 var content = {
     // ID:'male',
@@ -32,7 +28,6 @@ async function load_chat(userName,userID){
     });
   }
 function handleInput(userMessage){
-    // const loaderNode = ReactDOM.render(<l-ring size='60' color="coral"></l-ring>, document.createElement('div'));
     const messageBox = document.querySelector(".video-message-area");
     const video = document.getElementById("my-video");
     const newMessage = document.createElement('div');
@@ -49,73 +44,108 @@ function handleInput(userMessage){
     const replyMessage = document.createElement('div');
     replyMessage.classList.add('ai-message');
     content.message = userMessage;
+    socket.off('message')
     socket.emit('message',content);
     let reply = {'text':[],'video':[]}
     let typing = false
+    let playing = false;
     let replye;
-    socket.off('message')
+    let last = false;
+    
     socket.on('message', (response) =>{
-        console.log(`respone is ${typeof response}`)
-        if (typeof response === 'string'){
+        // console.log("ack",acknow)
+        
+        if (response ==='stopToken'){
+            document.querySelector('input').disabled = false;
+            document.querySelector('input').style.cursor = 'text';
+            chatLoader.style.display = "none";
+            document.querySelector('input').focus();
+            last = true;
+        }
+        if (typeof response === 'string' && response!=='stopToken'){
             reply['text'].push(response)
-            
-            while(reply['text'].length > 0){
-                
-                if (!typing){
-                    replye = reply['text'].shift()
-                }
-                else{
-                    continue;
-                }
-                console.log(replye)
-                let i = 0;
-                chatLoader.style.display = "none";
-                const interval = setInterval(() => {
-                    typing = true
+            animateStream() 
+        }
+        else if(typeof response !== 'string' && response!=='stopToken' ){
+            reply['video'].push(response)
+            playNextVideo()
+        }
+})
+
+function animateStream(){
+    if(!typing && reply['text'].length > 0){
+        typing = true
+        
+        replye = reply['text'].shift()
+        let i = 0;
+        const interval = setInterval(() => {
             if ( i < replye.length ) {
                 replyMessage.innerHTML += replye[i];
                 messageBox.scrollTo(0,messageBox.scrollHeight)
-                  i++;
-                } else {
-                    document.querySelector('input').disabled = false;
-                    document.querySelector('input').style.cursor = 'text';
-                    clearInterval(interval);
-                    typing  = false;
-
+                i++;
                 }
-              }, 50);
-              messageBox.appendChild(replyMessage);
-              
-              userMessage = '';
-              
-        }}
-        else{
-            reply['video'].push(response)
-            while(reply['video'].length > 0){
-                const replye = reply['video'].shift()
-                console.log("its a video, processing")
-                const blob = new Blob([replye]);
-                const videoURL = URL.createObjectURL(blob);
-                video.loop = false;
-                video.src = videoURL;
-                video.currentTime = 0.2;
-                // loadingDotsVideo.style.display = "none";
-                // videoLoader.style.display = "none";
-                video.muted = false;
-                video.play();
-                video.addEventListener('ended',()=>{
-                    video.muted = true;
-                    video.src = '/silence.mp4'
-                    video.currentTime = 0.1;
-                    video.play()
-                })
+            else {
 
+                  clearInterval(interval);
+                  typing  = false;
+                  messageBox.appendChild(replyMessage);
+                //   if (!last){
+                //     console.log("this is the last one",last)
+                //     chatLoader.style.display = "block";
+                //             }
                 
+                animateStream()
+                        
+                }
+            },
+             50);
+    }
+}
+function playNextVideo(){
+    if (!playing && reply['video'].length > 0){
+        const replye = reply['video'].shift()
+        playing = true;
+        chatLoader.style.display = "none";
+        const blob = new Blob([replye]);
+        const videoURL = URL.createObjectURL(blob);
+        setTimeout(() => {
+            
+            video.load()
+            video.loop = false;
+            video.src = videoURL;
+            video.currentTime = 0.2;
+            video.muted = false;
+            video.play().catch((e)=>{console.log("playing eror, ",e)});
+            video.addEventListener('ended',onVideoEnded)
+            
         }
+        ,100)
         
         
+
+    }
+
+}
+
+function onVideoEnded(){
+    if(!last){
+        chatLoader.style.display = "block";
         
-    }})
+    }
+    
+    playing= false;
+    console.log("ended")   
+    video.removeEventListener('ended',onVideoEnded)
+    
+    setTimeout(() => {
+        video.load()
+        video.src = '/silence.mp4'
+        video.muted = true;
+        video.play()
+        playNextVideo()
+    })
+    
+                }
     document.querySelector('input').disabled = true;
     document.querySelector('input').style.cursor = 'not-allowed';
 	

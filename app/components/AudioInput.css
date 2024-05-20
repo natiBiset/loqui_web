@@ -1,7 +1,7 @@
 .microphone-form {
     display: flex;
-    margin-left: 22rem;
-    gap:250px;
+    margin-left: 30rem;
+    gap:25px;
     padding-left: 200px;
     align-items: center;
     /* width: 300px; */
@@ -9,6 +9,46 @@
     background: transparent;
 }
 .recordButton{
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+}
+.recordButton img {
+    width: 40px;
+    border-radius: 50%;
+    background-image: transparent;
+    background-color: #ffffff9c ;
+    padding: 10px;
+    animation: mic-animation 1s ease-in-out forwards;
+}
+.recordButton img.listen{
+    width: 40px;
+    border-radius: 50%;
+    background-image: transparent;
+    background-color: #ffffff9c ;
+    padding: 10px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+    /* background-color: green; */}
+.recordButton img.muted-mic{
+    width: 40px;
+    /* background-image: url('/mute.svg'); */
+    background-color: red;
+    border-radius: 50%;
+    padding: 10px;
+    background-size: cover;
+    animation: mic-animation 1s ease-in-out forwards;
+
+}
+@keyframes mic-animation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+.cloneButton{
     background: transparent;
     border: none;
     border-radius: 50%;
@@ -23,30 +63,30 @@
     border: none;
     border-radius: 50%;
 }
+.cloneButton img:hover{
+    background-color:#333333 ;
+    /* background: transparent; */
+    border: none;
+    border-radius: 50%;
+}
 .stopButton img:hover{
     background-color:#333333 ;
     /* background: transparent; */
     border: none;
     border-radius: 50%;
 }
-.recordButton img {
+
+.cloneButton img{
     width: 40px;
-    color: blue;
     border-radius: 50%;
     background-image: transparent;
     background-color: #ffffff9c ;
     padding: 10px;
-
-    /* background-color: blue;
-    padding:0px; */
-    
 }
 .recordButton img.active{
     width: 40px;
-    color: blue;
     border-radius: 50%;
     background-image: transparent;
-    background-color: #ffffff9c ;
     padding: 10px;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
 	transform: scale(1);
@@ -56,6 +96,8 @@
 
 
 }
+
+
 
 
 @keyframes pulse {
@@ -88,6 +130,12 @@
     border-radius: 20%;
 }
 .stopButton img{
+    width: 50px;
+    background-color: #f50c0c ;
+    border-radius: 50%;
+    padding: 10px
+}
+.stopButton img.active{
     width: 40px;
     background-color: #f50c0c;
     border-radius: 50%;

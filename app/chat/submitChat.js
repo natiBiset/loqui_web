@@ -57,14 +57,15 @@ function handleInput(userMessage){
     let reply = ''
     socket.on('message', (reply) =>{
         if (reply){
-    let i = 0;
-    chatLoader.style.display = "none";
-    const interval = setInterval(() => {
-        if ( i < reply.length ) {
-            replyMessage.innerHTML += reply[i];
-            messageBox.scrollTo(0,messageBox.scrollHeight)
-              i++;
-            } else {
+            let i = 0;
+            chatLoader.style.display = "none";
+            const interval = setInterval(() => {
+                if ( i < reply.length ) {
+                replyMessage.innerHTML += reply[i];
+                messageBox.scrollTo(0,messageBox.scrollHeight)
+                i++;
+               } 
+                else {
                 // messageBox.scrollTo(0,messageBox.scrollHeight)
                 document.querySelector('input').disabled = false;
                 document.getElementById("message").focus();
@@ -72,7 +73,7 @@ function handleInput(userMessage){
                 clearInterval(interval);
             }
           }, 50);	
-    messageBox.appendChild(replyMessage);
+        messageBox.appendChild(replyMessage);
     
     
 }})

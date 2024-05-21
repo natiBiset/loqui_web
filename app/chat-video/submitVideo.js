@@ -74,8 +74,7 @@ function handleInput(userMessage){
 
 function animateStream(){
     if(!typing && reply['text'].length > 0){
-        typing = true
-        
+        typing = true    
         replye = reply['text'].shift()
         let i = 0;
         const interval = setInterval(() => {
@@ -103,8 +102,7 @@ function playNextVideo(){
         chatLoader.style.display = "none";
         const blob = new Blob([replye]);
         const videoURL = URL.createObjectURL(blob);
-        setTimeout(() => {
-            
+        setTimeout(() => { 
             video.load()
             video.loop = false;
             video.src = videoURL;
@@ -114,7 +112,7 @@ function playNextVideo(){
             video.addEventListener('ended',onVideoEnded)
             
         }
-        ,100)
+        ,50)
         
         
 
@@ -136,11 +134,14 @@ function onVideoEnded(){
         video.load()
         video.src = '/silence.mp4'
         video.muted = true;
+        video.loop = true;
+        video.currentTime = 0.4;
         video.play()
+
         playNextVideo()
-    })
+    }) 
     
-                }
+            }
     document.querySelector('input').disabled = true;
     document.querySelector('input').style.cursor = 'not-allowed';
 	

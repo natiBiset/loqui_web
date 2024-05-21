@@ -6,7 +6,14 @@ import { load_chat } from '../chat-video/submitVideo';
 
 
 export default function VideoInputForm({userName,userID}){
-    useEffect(()=>{load_chat(userName,userID)})
+    useEffect(()=>{
+        load_chat(userName,userID),
+        window.addEventListener('beforeunload', function(event) {
+            const video = document.querySelector('video');
+            video.pause()
+        });
+        
+    })
     function handleSubmit(e){
         e.preventDefault();
         const userInput = e.target.querySelector('input[type="text"]').value;

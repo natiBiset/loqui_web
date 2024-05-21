@@ -30,7 +30,26 @@ async function load_chat(userName,userID){
 
     });
   }
-
+export function showDropDown(){
+  const dropList = document.querySelector('.dropup-content')
+  if (dropList.style.display ==='none' || dropList.style.display ===''){
+    dropList.style.display = 'block';
+  }
+  else if(dropList.style.display ==='block'){
+    dropList.style.display = 'none';
+  }
+  
+}
+export function selectFromDropDown(n){
+  const dropList = document.querySelector('.dropup-content')
+  dropList.style.display = 'none';
+  if (n == 1){
+    content.gender = 'm';
+  }
+  else if (n = 2){
+    content.gender = 'f'
+  }
+}
 var audioContext = null;
 var meter = null;
 var rafID = null;

@@ -1,6 +1,6 @@
 'use client'
 import './AudioInput.css'
-import { record,suspendRecordingBtn,load_chat} from '../chat-audio/submitAudio'
+import { record,suspendRecordingBtn,load_chat,showDropDown,selectFromDropDown} from '../chat-audio/submitAudio'
 import Link from 'next/link';
 // import { load_chat } from '../audio';
 import { useEffect } from "react";
@@ -28,10 +28,17 @@ export default function AudioForm({userName,userID}){
 		            </button>
 			    </Link>
 				<form>
-			        <button type="button" className="speakerButton" onClick={suspendRecordingBtn}>
+					<div className="dropup">
+					<button type="button" className="speakerButton" onClick={(e) => {e.preventDefault();showDropDown()}}>
 			            <img src = "/speaker.svg" alt="various speakers"/>
 						{/* <div className="stop-button-text">Stop</div> */}
 		            </button>
+					<div className="dropup-content">
+    					<div className="speaker-1" onClick={(e) => {e.preventDefault();selectFromDropDown(1)}}>Speaker 1</div>
+    					<div className="speaker-2" onClick={(e) => {e.preventDefault();selectFromDropDown(2)}}>Speaker 2</div>
+  					</div>
+					</div>
+			        
 			    </form>
 	    </div>
 

@@ -27,7 +27,9 @@
 }
 
 .user-message {
-    background-color: #7c7372; /* #393e46;*/
+    /* background-color: #7c7372; #393e46; */
+    background-color: #f8efed; /* #393e46;*/
+    color: #000;
     float: right;
     clear: both;
     padding: 10px;

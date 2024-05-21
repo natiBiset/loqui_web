@@ -63,6 +63,7 @@ function handleInput(userMessage){
     
 
     replyPromise.then((reply) =>{
+        if (reply){
     let i = 0;
     chatLoader.style.display = "none";
     const interval = setInterval(() => {
@@ -81,7 +82,7 @@ function handleInput(userMessage){
     messageBox.appendChild(replyMessage);
     
     
-})
+}})
 document.querySelector('input').disabled = true;
 document.querySelector('input').style.cursor = 'not-allowed';
 userMessage = '';

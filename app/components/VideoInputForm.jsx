@@ -3,6 +3,7 @@ import './InputForm.css'
 import {handleInput} from '../chat-video/submitVideo';
 import { useEffect } from "react"
 import { load_chat } from '../chat-video/submitVideo';
+import {disconnectSocket} from '../chat/submitChat'
 
 
 export default function VideoInputForm({userName,userID}){
@@ -12,6 +13,7 @@ export default function VideoInputForm({userName,userID}){
             const video = document.querySelector('video');
             video.pause()
         });
+        window.onbeforeunload = ()=>disconnectSocket()
         
     })
     function handleSubmit(e){

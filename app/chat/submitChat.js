@@ -99,7 +99,8 @@ userMessage = '';
     // messageBox.scrollTop = messageBox.scrollHeight;
 }
 
-function disconnect(){
+export function disconnectSocket(){
+    console.log('disconnecting')
     socket.emit('disconnect_now','')
 }
 export  {handleInput,load_chat}

@@ -4,10 +4,12 @@ import { record,suspendRecordingBtn,load_chat,showDropDown,selectFromDropDown} f
 import Link from 'next/link';
 // import { load_chat } from '../audio';
 import { useEffect } from "react";
+import {disconnectSocket} from '../chat/submitChat'
+
 export default function AudioForm({userName,userID}){
 	useEffect(()=>{load_chat(userName,userID);
 		record()
-
+		window.onbeforeunload = ()=>disconnectSocket()
 		
 	})
     return (

@@ -86,19 +86,14 @@ function animateStream(){
                 }
             else {
 
-                  clearInterval(interval);
-                  typing  = false;
-                  messageBox.appendChild(replyMessage);
-                //   if (!last){
-                //     console.log("this is the last one",last)
-                //     chatLoader.style.display = "block";
-                //             }
-                
+                clearInterval(interval);
+                typing  = false;
                 animateStream()
                         
                 }
             },
              50);
+             messageBox.appendChild(replyMessage);
     }
 }
 function playNextVideo(){

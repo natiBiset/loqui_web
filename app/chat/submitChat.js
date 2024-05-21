@@ -53,33 +53,43 @@ function handleInput(userMessage){
     const replyMessage = document.createElement('div');
     replyMessage.classList.add('ai-message');
     content.message = userMessage;
+    socket.off('message')
     socket.emit('message',content);
     let reply = ''
-    socket.on('message', (reply) =>{
-        if (reply){
+    socket.on('message', (response) =>{
+              
+        if (response.content){
+            reply = response.content
             let i = 0;
             chatLoader.style.display = "none";
             const interval = setInterval(() => {
-                if ( i < reply.length ) {
+            if ( i < reply.length ) {
                 replyMessage.innerHTML += reply[i];
                 messageBox.scrollTo(0,messageBox.scrollHeight)
                 i++;
-               } 
-                else {
+                } 
+            else {
                 // messageBox.scrollTo(0,messageBox.scrollHeight)
                 document.querySelector('input').disabled = false;
                 document.getElementById("message").focus();
                 document.querySelector('input').style.cursor = 'text';
+                
                 clearInterval(interval);
+                
             }
-          }, 50);	
-        messageBox.appendChild(replyMessage);
+          }, 50);
+          messageBox.appendChild(replyMessage);	
     
+          
     
-}})
+}
 document.querySelector('input').disabled = true;
 document.querySelector('input').style.cursor = 'not-allowed';
 userMessage = '';
+}
+)
+
+
     // replyMessage.textContent = response.content
     // messageBox.appendChild(replyMessage);
     // messageBox.scrollTop = messageBox.scrollHeight;

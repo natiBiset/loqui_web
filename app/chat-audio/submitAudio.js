@@ -1018,11 +1018,12 @@ function animateStream(){
          else {
             clearInterval(interval);
             typing  = false;
-            messageBox.appendChild(replyMessage);
+            
             animateStream()        
                           }
                       },
                        50);
+                       messageBox.appendChild(replyMessage);
               }
           }
 function playNextAudio(){

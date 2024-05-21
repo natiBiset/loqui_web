@@ -55,14 +55,7 @@ function handleInput(userMessage){
     content.message = userMessage;
     socket.emit('message',content);
     let reply = ''
-    const replyPromise = new Promise( (resolve)=>
-    {socket.on('message', (response) =>{
-        resolve(response.content) 
-        
-    })})
-    
-
-    replyPromise.then((reply) =>{
+    socket.on('message', (reply) =>{
         if (reply){
     let i = 0;
     chatLoader.style.display = "none";

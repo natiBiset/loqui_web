@@ -4,6 +4,7 @@ import VideoInputForm from "../components/VideoInputForm"
 import VideoPlayer from "../components/Videoplayer";
 import VideoChatBox from "../components/VideoChatBox";
 import SignUp from "../components/SignUp";
+import Footer from "../components/Footer";
 import { cookies } from "next/headers";
 
 export const metadata = {
@@ -39,7 +40,7 @@ export default function ChatPage(){
         
         <VideoInputForm userName={userName} userID={userID}/>
         
-        
+        <Footer />
 
 </>
 

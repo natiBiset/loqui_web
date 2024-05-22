@@ -4,7 +4,7 @@ import InputForm from "../components/InputForm";
 import '../components/InputForm.css';
 import '../components/SignUp.css'
 import { cookies } from "next/headers";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import SignUp from "../components/SignUp";
 
 export const metadata = {
@@ -39,7 +39,7 @@ export default function ChatPage(){
         <ChatBox />
         <InputForm userName={userName} userID={userID} /> 
         
-        {/* {/* <Footer /> */}
+        <Footer />
         
 
 </>

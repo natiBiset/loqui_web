@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-      <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>{children}</body>
       {/* <script src="app/audio-chat/volume-meter.js"></script>

@@ -1,8 +1,6 @@
 import Sidebar from "../components/Sidebar";
 import ChatBox from "../components/ChatBox";
 import InputForm from "../components/InputForm";
-import '../components/InputForm.css';
-import '../components/SignUp.css'
 import { cookies } from "next/headers";
 import Footer from "../components/Footer";
 import SignUp from "../components/SignUp";
@@ -33,13 +31,13 @@ export default function ChatPage(){
     
     return (
 <>      
-        {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>}
+        {/* {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>} */}
         
         <Sidebar userName={userName}/>
-        <ChatBox />
+        {/* <ChatBox />
         <InputForm userName={userName} userID={userID} /> 
         
-        <Footer />
+        <Footer /> */}
         
 
 </>

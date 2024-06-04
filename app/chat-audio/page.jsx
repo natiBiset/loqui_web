@@ -28,14 +28,19 @@ export default function AudioChatPage(){
 
     // load_chat();
     return (
-<>
+<div className="chat-container">
         {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>}
         <Sidebar userName={userName}/>
+        <div className="main-container">
         <AudioChatBox />
         <AudioForm userName={userName} userID={userID}/>
-        <Footer />
+        </div>
+        
+         {/*
+        
+        <Footer /> */}
 
-</>
+</div>
 
     )
 }

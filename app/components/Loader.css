@@ -1,7 +1,9 @@
 /* HTML: <div class="loader"></div> */
 .chat_loader {
   display: block;
-  width: 30px;
+  position: absolute;
+  left: 10px;
+  bottom: 4px;
   width: 10px;
   padding: 8px;
   aspect-ratio: 1;

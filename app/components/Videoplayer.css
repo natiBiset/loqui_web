@@ -1,12 +1,12 @@
 .video-player{
     /* border-radius: 10px;
     border: 4px solid #ffffffa4; */
-    position: absolute;
+    /* position: absolute; */
     background-color: #000000;
     align-items: right;
     justify-content: right;
-    margin-top:0rem ;
-    margin-left: 44rem;
+    /* margin-top:0rem ;
+    margin-left: 44rem; */
     border-radius:0px 20px 20px 20px ;
     width: 10rem;
     height: 10rem;

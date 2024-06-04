@@ -1,11 +1,13 @@
 .microphone-form {
     display: flex;
-    margin-left: 30rem;
-    gap:25px;
-    padding-left: 200px;
+    flex-direction: row;
+    /* margin-left: 30rem; */
+    gap:1.5rem;
+    /* padding-left: 200px; */
     align-items: center;
+    margin: auto;
     /* width: 300px; */
-    margin-top: 40px;
+    /* margin-top: 40px; */
     background: transparent;
 }
 .recordButton{

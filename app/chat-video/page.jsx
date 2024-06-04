@@ -1,11 +1,9 @@
 import Sidebar from "../components/Sidebar"
-import ChatBox from "../components/ChatBox"
-import VideoInputForm from "../components/VideoInputForm"
-import VideoPlayer from "../components/Videoplayer";
 import VideoChatBox from "../components/VideoChatBox";
 import SignUp from "../components/SignUp";
 import Footer from "../components/Footer";
-import { cookies } from "next/headers";
+import { cookies } from "next/headers"; 
+import VideoInputForm from "../components/VideoInputForm";
 
 export const metadata = {
     title: "LoquiLabs | Video chat",
@@ -31,18 +29,22 @@ export default function ChatPage(){
     }
 
     return (
-<>
+<div className="chat-container">
         {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>}
 
         <Sidebar userName={userName}/>
         {/* <VideoPlayer /> */}
+        <div className="main-container">
         <VideoChatBox />
-        
         <VideoInputForm userName={userName} userID={userID}/>
+        </div>
         
-        <Footer />
+        
+        
+         {/*
+        <Footer /> */}
 
-</>
+</div>
 
     )
 }

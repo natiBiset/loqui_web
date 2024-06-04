@@ -30,17 +30,22 @@ export default function ChatPage(){
 
     
     return (
-<>      
-        {/* {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>} */}
+<div className="chat-container">      
+        {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>}
         
         <Sidebar userName={userName}/>
-        {/* <ChatBox />
+        <div className="main-container">
+        <ChatBox />
         <InputForm userName={userName} userID={userID} /> 
+        </div>
         
+         
+       
+        {/*
         <Footer /> */}
         
 
-</>
+</div>
 
     )
 }

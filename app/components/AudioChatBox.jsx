@@ -8,8 +8,14 @@ import './AudioChatBox.css'
 export default function AudioChatBox(){
     return (
     <div className="chat-box">
-        <AudioPlayer />
-	    <div className="audio-message-area"></div>
+        
+	    <div className="audio-message-area">
+            
+        
+        </div>
+        <div className="audio-player-container">
+            <AudioPlayer />
+            </div>
 	</div>
     )
 }

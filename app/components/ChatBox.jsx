@@ -9,8 +9,11 @@ export default function ChatBox(){
     return (
     <div className="chat-box">
         {/* <VideoPlayer /> */}
-	    <div className="message-area"></div>
         <Loaders page = {'chat'} />
+	    <div className="message-area">
+        
+        </div>
+        
 	    {/* <InputForm /> */}
 	</div>
     )

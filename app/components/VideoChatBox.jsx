@@ -9,9 +9,12 @@ import Options from "./Options"
 export default function VideoChatBox(){
     return (
     <div className="chat-box">
-        <VideoPlayer />
-	    <div className="video-message-area"> </div>
+        {/* */}
         <Loaders page = {'chat'} />
+	    <div className="video-message-area"> </div>
+        <div className="video-player-container">
+        <VideoPlayer /> 
+        </div>
 	    {/* <InputForm /> */}
        
 	</div>

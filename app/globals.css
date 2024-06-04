@@ -13,6 +13,9 @@ body {
   color: #fff;
   transition: opacity 0.5s ease-in-out;
 }
+.chat-container{
+  display: flex
+}
 .user-message {
   background-color: #463E3D; /* #393e46;*/
   float: right;

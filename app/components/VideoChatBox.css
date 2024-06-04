@@ -1,5 +1,5 @@
 .main-container{
-  border: yellow dashed 1px;
+  /* border: yellow dashed 1px; */
   margin-top: 0.5rem;
   flex: 1;
   display: flex;
@@ -9,7 +9,7 @@
   width:100%;
 }
 .chat-box{
-  border: red dashed 1px;
+  /* border: red dashed 1px; */
   position: relative;
   display: flex;
   height: calc(90vh - 0.5rem);
@@ -20,7 +20,7 @@
 }
 
 .video-message-area{
-  border: blue dashed 1px;   
+  /* border: blue dashed 1px;    */
   margin-top: 2rem;
   width: 75%;
   height: 90%;
@@ -33,7 +33,7 @@
   
 }
 .video-player-container{
-  border: white 1px dashed; 
+  /* border: white 1px dashed;  */
   flex: 1;
 
   /* width: 100%; */
@@ -97,3 +97,24 @@
     }
   }
 
+/* mobile */
+@media (max-width: 768px) {
+  .video-message-area{
+    padding-right:0.5rem;
+    padding-left: 0.5rem;
+    height: calc(82vh - 1rem);
+    max-height: calc(82vh - 1rem);
+    
+}    
+  }
+
+/* mobile */
+@media (max-width: 480px) {
+  .video-message-area{
+    padding-right:0.5rem;
+    padding-left: 0.5rem;
+    height: calc(82vh - 1rem);
+    max-height: calc(82vh - 1rem);
+    
+}    
+  }

@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center; 
     position: relative;
-    width: 95%;
+    width: 100%;
 }
 .input-form input[type="text"] {
     width: 100%;
@@ -49,3 +49,31 @@
     height: 40px;
     
 }
+
+/*tablet*/
+@media (max-width: 768px) {
+        .input-form input[type="text"] {
+        height: 2.5rem;
+        font-size: 0.95rem;
+    
+	}
+	::placeholder{
+	    font-size: 0.95rem;
+	}
+	.input-form form{
+	    min-width: 90%;
+	}
+}
+
+/*mobile*/
+@media (max-width: 480px) {
+    
+    .input-form input[type="text"] {
+        height: 2rem;
+        font-size: 0.9rem;
+    
+  }
+  ::placeholder{
+    font-size: 0.85rem;
+  }
+  }

@@ -1,7 +1,22 @@
 .footer{
-    border: white 1px dashed;
+    /* border: white 1px dashed; */
     text-align: center;
     margin: auto;
     font-size: 0.8rem;
+    max-height: 2rem;
 
 }
+
+@media (max-width: 768px) {
+    .footer{
+	font-size: 0.7rem;
+    }
+}
+@media (max-width: 480px) {
+    
+    .footer{
+        font-size: 0.6rem;
+        /* margin-left: 3rem; */
+        
+  }
+  }

@@ -28,3 +28,18 @@
 .video-player video.ended{
     opacity: 1;
 }
+/* mobile  */
+@media (max-width: 768px) {
+    .video-player{
+	width: 8rem;
+	height: 8rem;
+    }
+  }
+
+/* mobile  */
+@media (max-width: 480px) {
+    .video-player{
+	width: 7rem;
+	height: 7rem;
+    }
+  }

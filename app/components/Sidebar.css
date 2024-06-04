@@ -156,12 +156,13 @@
     display: block;
     /* width: 2rem; */
     text-align: center;
+    box-shadow: 2px 2px 3px #999;
   }
   .menu-box{
     text-decoration: none;
     /* display: flex; */
     text-align: left;
-    margin-top: 2rem;
+    margin-top: 3rem;
     margin-left: 0;
     margin-right: 0;
 
@@ -174,7 +175,7 @@
     border: #757479 1px solid;
     border-radius: 10%;
     margin-bottom: 1rem;
-    box-shadow: 0px 5px 80px 0px;
+    box-shadow: 2px 2px 3px #999;
   }
   .menu-box ul li img{
     vertical-align:bottom;

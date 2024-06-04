@@ -1,5 +1,5 @@
 .main-container{
-  border: yellow dashed 1px;
+  /* border: yellow dashed 1px; */
   margin-top: 0.5rem;
   flex: 1;
   display: flex;
@@ -9,17 +9,16 @@
   width:100%;
 }
 .chat-box{
-    border: red dashed 1px;
+    /* border: red dashed 1px; */
     position: relative;
     height: calc(90vh - 0.5rem);
     max-height: calc(90vh - 0.5rem);
     width: 100%;
-    flex: 1;
     border-radius:10px;
 }
 
 .message-area{
-    border: blue dashed 1px;
+    /* border: blue dashed 1px; */
     margin-top: 2rem;
     width: 100%;
     height: calc(82vh - 1rem);
@@ -97,7 +96,8 @@
 /*tablet*/
 @media (max-width: 768px) {
   .message-area{
-    padding-right:5rem;
+      padding-right:1rem;
+      padding-left: 1rem;
     height: calc(82vh - 1rem);
     max-height: calc(82vh - 1rem);
     
@@ -107,7 +107,8 @@
 /*mobile*/
 @media (max-width: 480px) {
   .message-area{
-    padding-right:3rem;
+    padding-right:0.5rem;
+    padding-left: 0.5rem;
     height: calc(82vh - 1rem);
     max-height: calc(82vh - 1rem);
     

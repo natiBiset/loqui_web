@@ -1,5 +1,5 @@
 .main-container{
-  border: yellow dashed 1px;
+  /* border: yellow dashed 1px; */
   margin-top: 0.5rem;
   flex: 1;
   display: flex;
@@ -9,7 +9,7 @@
   width:100%;
 }
 .chat-box{
-  border: red dashed 1px;
+  /* border: red dashed 1px; */
   display: flex;
   height: calc(90vh - 0.5rem);
   max-height: calc(90vh - 0.5rem);
@@ -18,7 +18,7 @@
   border-radius:10px;
 }
 .audio-message-area{
-  border: blue dashed 1px;
+  /* border: blue dashed 1px; */
   position: relative;
   margin-top: 2rem;
   width: 80%;
@@ -26,13 +26,13 @@
   max-height: 90%;
   overflow-y: auto;
   padding-bottom: 2rem;
-  padding-right:3rem;
-  padding-left: 3rem;
+  padding-right:1rem;
+  padding-left: 1rem;
   padding-bottom:1rem ;
   
 }
 .audio-player-container{
-  border: white 1px dashed;
+  /* border: white 1px dashed; */
   flex: 1;
 }
 
@@ -93,3 +93,23 @@
     }
   }
 
+@media (max-width: 768px) {
+  .audio-message-area{
+    padding-right:0.5rem;
+    padding-left: 0.5rem;
+    height: calc(82vh - 1rem);
+    max-height: calc(82vh - 1rem);
+    
+}
+}
+
+/*mobile*/
+@media (max-width: 480px) {
+  .audio-message-area{
+    padding-right:0.5rem;
+    padding-left: 0.5rem;
+    height: calc(82vh - 1rem);
+    max-height: calc(82vh - 1rem);
+    
+}
+}

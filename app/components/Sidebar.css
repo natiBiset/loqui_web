@@ -4,7 +4,7 @@
     max-height:calc(98vh - 0.5rem);;
     min-width: 300px;
     max-width: 1000px;
-    margin-left: 1.2rem;
+    margin-left: 1rem;
     margin-top: 0.5rem;
     filter:drop-shadow(-5px -5px 5px rgba(0,0,0,0.25));
     border-radius:10px;
@@ -75,9 +75,9 @@
   }
   #chat-menu img{
     padding-right: 1rem;
-    width: 4rem;
+    width: 3.6rem;
     /* justify-content: center; */
-    padding-left: 1.9rem;
+    padding-left: 1.4rem;
   }
   .menu-box ul li a:hover {
     /* background-color: #333; */
@@ -104,6 +104,7 @@
   .sidebar {
       width: 20%;
       min-width: 200px;
+      margin-left: 1rem;
   }
   .menu-box{
     margin-left: 1rem;
@@ -153,6 +154,7 @@
   }
   #mobile-company-name{
     display: block;
+    /* width: 2rem; */
     text-align: center;
   }
   .menu-box{
@@ -162,13 +164,17 @@
     margin-top: 2rem;
     margin-left: 0;
     margin-right: 0;
+
    
   }
   #menu-text{
     display: none;
   }
   .menu-box ul li{
-    border: #757479 5px solid;
+    border: #757479 1px solid;
+    border-radius: 10%;
+    margin-bottom: 1rem;
+    box-shadow: 0px 5px 80px 0px;
   }
   .menu-box ul li img{
     vertical-align:bottom;

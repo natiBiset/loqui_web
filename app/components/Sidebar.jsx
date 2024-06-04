@@ -14,6 +14,7 @@ export default function Sidebar({userName}){
             <section className='info-container'>
                 <h1 id='company_name'>LOQUILABS AI</h1>
                 <h1 id='mobile-company-name'>L</h1>
+                {/* <img id="mobile-company-name" src="favicon.png" alt="Loqui Labs icon" /> */}
                 <p id='statement'>Let's Humanize AI</p>
             </section>
             <nav className="menu-box">

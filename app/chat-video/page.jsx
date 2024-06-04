@@ -37,6 +37,7 @@ export default function ChatPage(){
         <div className="main-container">
         <VideoChatBox />
         <VideoInputForm userName={userName} userID={userID}/>
+        <Footer /> 
         </div>
         
         

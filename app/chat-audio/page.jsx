@@ -34,6 +34,7 @@ export default function AudioChatPage(){
         <div className="main-container">
         <AudioChatBox />
         <AudioForm userName={userName} userID={userID}/>
+        <Footer /> 
         </div>
         
          {/*

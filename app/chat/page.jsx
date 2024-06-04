@@ -37,12 +37,13 @@ export default function ChatPage(){
         <div className="main-container">
         <ChatBox />
         <InputForm userName={userName} userID={userID} /> 
+        <Footer /> 
         </div>
+        
         
          
        
-        {/*
-        <Footer /> */}
+        
         
 
 </div>

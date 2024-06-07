@@ -3,17 +3,36 @@ import './AudioInput.css'
 import { record,suspendRecordingBtn,load_chat,showDropDown,selectFromDropDown} from '../chat-audio/submitAudio'
 import Link from 'next/link';
 // import { load_chat } from '../audio';
-import { useEffect } from "react";
-import {disconnectSocket} from '../chat/submitChat'
+import { useEffect,useState ,useRef} from "react"
+import {disconnectSocket} from '../chat-audio/submitAudio'
 
 export default function AudioForm({userName,userID}){
-	useEffect(()=>{load_chat(userName,userID);
-		record()
-		window.onbeforeunload = ()=>disconnectSocket()
+    const [isLoading,setIsLoading] = useState(true);
+    const isLoaded = useRef(false)
+
+    useEffect(()=>{
+	if(!isLoaded.current){
+	    isLoaded.current = true;
+	    load_chat(userName,userID,setIsLoading);
+	    console.log('isloaded',isLoading)
+	   
+
+	    window.onbeforeunload = ()=>disconnectSocket()}
+	if (!isLoading){
+	     record()
+	}
 		
 	})
     return (
+	<>{ isLoading && 
+	    <div className="loader-container">
+		<div className="loader-text">
+		    Connecting
+		</div>
+		<div className="loader"></div>
+	    </div>}
         <div className="microphone-form">
+	    
 				<form>
 		       {/* <form onSubmit={ (e) => { e.preventDefault(); record(e); }}> */}
 			        <button type="submit" className="recordButton" onClick={(e) => {e.preventDefault();suspendRecordingBtn()}} >
@@ -42,7 +61,8 @@ export default function AudioForm({userName,userID}){
 					</div>
 			        
 			    </form>
-	    </div>
+	</div>
+	</>
 
     )
 }

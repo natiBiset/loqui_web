@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
-const socket = io('ws://34.195.113.89/socket.io');
+let socket;
 
 const formData = new FormData();
 let muted = false;
@@ -12,14 +12,17 @@ var content = {
     is_cloned:'no',
     audio:"yes"
   }
-async function load_chat(userName,userID){  
+async function load_chat(userName,userID,setIsLoading){
+    
   if (!userID){
     return
   }
+    socket = io('ws://34.195.113.89/socket.io');
   formData.append("ID",userID);
   content.ID = userID
   content.username = userName  
     socket.on('connect', () => {
+	setIsLoading(true)
         console.log('Successfully connected to the Socket.IO server!');
     });
     console.log('loading');
@@ -27,9 +30,15 @@ async function load_chat(userName,userID){
     socket.emit('load',content);
     socket.on('load',(response) =>{
         console.log(response)
+	setIsLoading(false)
 
     });
-  }
+}
+export function disconnectSocket(){
+    console.log('disconnecting')
+    socket.emit('disconnect_now','')
+}
+
 export function showDropDown(){
   const dropList = document.querySelector('.dropup-content')
   if (dropList.style.display ==='none' || dropList.style.display ===''){

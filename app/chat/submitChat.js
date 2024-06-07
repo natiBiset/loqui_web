@@ -1,7 +1,4 @@
 import { io } from "socket.io-client";
-const socket = io('ws://34.195.113.89/socket.io');
-
-
 
 var content = {
     // ID:'sample8',
@@ -9,21 +6,26 @@ var content = {
     lang:'en-us',
     is_cloned:'no',
     // video:'no'
-  }
-async function load_chat(userName,userID){   
+}
+let socket;
+async function load_chat(userName,userID,setIsLoading){   
     if (!userID){
         return
     }
-    content.ID = userID
-    content.username = userName 
+    
+    let retryTimeout;
+    socket = io('ws://34.195.113.89/socket.io');
+    content.ID = userID;
+    content.username = userName;
     socket.on('connect', () => {
+	setIsLoading(true);
         console.log('Successfully connected to the Socket.IO server!');
     });
     console.log('loading');
     console.log(content);
     socket.emit('load',content);
     socket.on('load',(response) =>{
-        console.log(response)
+	setIsLoading(false);
 
     });
   }

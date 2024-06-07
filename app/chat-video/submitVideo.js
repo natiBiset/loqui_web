@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
-const socket = io('ws://34.195.113.89/socket.io');
 
+let socket;
 var content = {
     // ID:'male',
     // username: 'mike',
@@ -10,23 +10,30 @@ var content = {
     video:'yes',
     audio:'yes'
   }
-async function load_chat(userName,userID){  
+async function load_chat(userName,userID,setIsLoading){  
     if (!userID){
         return
     }
+    socket = io('ws://34.195.113.89/socket.io');
     content.ID = userID
     content.username = userName;  
     socket.on('connect', () => {
+	setIsLoading(true);
         console.log('Successfully connected to the Socket.IO server!');
     });
     console.log('loading');
     console.log(content);
     socket.emit('load',content);
     socket.on('load',(response) =>{
-        console.log(response)
+	setIsLoading(false)
 
     });
-  }
+}
+export function disconnectSocket(){
+    console.log('disconnecting')
+    socket.emit('disconnect_now','')
+}
+
 function handleInput(userMessage){
     const messageBox = document.querySelector(".video-message-area");
     const video = document.getElementById("my-video");

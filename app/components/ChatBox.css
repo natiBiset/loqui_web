@@ -30,12 +30,20 @@
     /* padding-bottom:1rem ; */
     
 }
-::-webkit-scrollbar{
-  width: 5px;
-  height: 1px;
-  color: blue;
+.message-area::-webkit-scrollbar{
+    width: 5px;
 }
 
+.message-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+.message-area::-webkit-scrollbar-thumb {
+    background: #555;
+    
+}
+.message-area::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
 .user-message {
     background-color: #f8efed; /* #393e46;*/
     color: #000;

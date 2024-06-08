@@ -32,6 +32,20 @@
   padding-bottom:1rem ;
   
 }
+.video-message-area::-webkit-scrollbar{
+    width: 5px;
+}
+
+.video-message-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+.video-message-area::-webkit-scrollbar-thumb {
+    background: #555;
+    
+}
+.video-message-area::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
 .video-player-container{
   /* border: white 1px dashed;  */
   flex: 1;

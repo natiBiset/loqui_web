@@ -31,6 +31,21 @@
   padding-bottom:1rem ;
   
 }
+
+.audio-message-area::-webkit-scrollbar{
+    width: 5px;
+}
+
+.audio-message-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+.audio-message-area::-webkit-scrollbar-thumb {
+    background: #555;
+    
+}
+.audio-message-area::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
 .audio-player-container{
   /* border: white 1px dashed; */
   flex: 1;

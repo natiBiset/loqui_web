@@ -7,7 +7,7 @@ let muted = false;
 var content = {
     // ID:'male',
     // username: 'mike',
-    gender:'m',
+    gender:'f',
     lang:'en-us',
     is_cloned:'no',
     audio:"yes"
@@ -21,22 +21,18 @@ async function load_chat(userName,userID,setIsLoading){
     formData.append("ID",userID);
     content.ID = userID
     content.username = userName
-    console.log('username',userName)
+    // console.log('username',userName)
     socket.on('connect', () => {
 	setIsLoading(true)
-        console.log('Successfully connected to the Socket.IO server!');
+        // console.log('Successfully connected to the Socket.IO server!');
     });
-    console.log('loading');
-    console.log(content);
     socket.emit('load',content);
     socket.on('load',(response) =>{
-        console.log(response)
 	setIsLoading(false)
 	
     });
 }
 export function disconnectSocket(){
-    console.log('disconnecting')
     socket.emit('disconnect_now','')
 }
 
@@ -54,10 +50,10 @@ export function selectFromDropDown(n){
   const dropList = document.querySelector('.dropup-content')
   dropList.style.display = 'none';
   if (n == 1){
-    content.gender = 'm';
+    content.gender = 'f';
   }
   else if (n = 2){
-    content.gender = 'f'
+    content.gender = 'm'
   }
 }
 var audioContext = null;
@@ -71,7 +67,6 @@ function record(){
   }
     audioContext = new AudioContext();
     audioContext.resume().then( () => {
-        console.log('User interacted with the page. Playback resumed successfully')
       })
       try {
         // ask for an audio input
@@ -103,7 +98,7 @@ function record(){
         alert('getUserMedia threw exception :' + e);
     }
     
-    console.log("connecting")
+    // console.log("connecting")
 
  
 
@@ -293,8 +288,8 @@ function record(){
         // document.querySelector('#microphonestatus').style.background = 'red'
         // document.querySelector('#microphonestatuscell').style.background = 'red'
       
-        console.log('%cMICROPHONE MUTED', 'color:red')
-        console.log(' ')
+        // console.log('%cMICROPHONE MUTED', 'color:red')
+        // console.log(' ')
       
       })
       
@@ -311,8 +306,8 @@ function record(){
         // document.querySelector('#microphonestatus').style.background = 'green'
         // document.querySelector('#microphonestatuscell').style.background = 'green'
       
-        console.log('%cMICROPHONE UNMUTED', 'color:green')
-        console.log(' ')
+        // console.log('%cMICROPHONE UNMUTED', 'color:green')
+        // console.log(' ')
       
       })
 }
@@ -450,7 +445,8 @@ function sst(){
 
 
 function disconnect(){
-    socket.emit('disconnect_now','')
+    if (socket){
+	socket.emit('disconnect_now','')}
 }
 
 
@@ -958,8 +954,8 @@ function audioRecorder(stream) {
     const blob = e.data
     // console.log(blob)
     formData.append("audio",blob, "audio.webm");
-    console.log(formData)
-    console.log("sending data")
+    // console.log(formData)
+    // console.log("sending data")
     fetch("http://34.195.113.89/api/sst/speech_to_text",{
         method:"POST",
         body:formData,
@@ -1065,9 +1061,9 @@ function playNextAudio(){
         }
 function onAudioEnded(){
     if(last){
-      console.log('restart recording')
+      // console.log('restart recording')
       audioAnim.forEach((bar)=>{
-        console.log("stopping the animation")
+        // console.log("stopping the animation")
         bar.classList.remove('speaking');         
         bar.classList.add('listening')
         bar.classList.remove('thinking');
@@ -1076,7 +1072,7 @@ function onAudioEnded(){
     }
     if(!last){
       audioAnim.forEach((bar)=>{
-      console.log("stopping the animation")
+      // console.log("stopping the animation")
       bar.classList.remove('speaking');         
       bar.classList.remove('listening')
       bar.classList.add('thinking');
@@ -1084,7 +1080,7 @@ function onAudioEnded(){
     }
           
     playing= false;
-    console.log("ended")   
+    // console.log("ended")   
     audio.removeEventListener('ended',onAudioEnded)
 
         // audioLoader.style.display = 'block'
@@ -1152,11 +1148,11 @@ function onAudioEnded(){
   export  function abortRecording() {
     // Stopping the recorder will eventually trigger the `dataavailable` event and we can complete the recording process
     // if (recorder){   
-        console.log("aborting.............................")
-        console.log(recorder.state)
+        // console.log("aborting.............................")
+        // console.log(recorder.state)
 
         recorder.stop()
-        console.log(recorder.state)
+        // console.log(recorder.state)
         audioPlay = false}
         // DEFAULT_PARAMETERS_CONFIGURATION.recordingEnabled = false
     
@@ -1182,7 +1178,7 @@ function onAudioEnded(){
     muted = true
   //  const recordButton = document.querySelector('.recordButton img');
   //  stopButton.classList.add('active')
-  console.log("stoppppppppppppppppp")
+  // console.log("stoppppppppppppppppp")
   const recordButton = document.querySelector('.recordButton img');
   const audioAnim = document.querySelectorAll('.bar')
   audioAnim.forEach((bar) => {

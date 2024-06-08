@@ -1,4 +1,5 @@
 "use client";
+
 import './Sidebar.css'
 import Profile from './Profile'
 import { usePathname} from 'next/navigation';

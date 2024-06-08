@@ -8,29 +8,49 @@ var content = {
     // video:'no'
 }
 let socket;
-async function load_chat(userName,userID,setIsLoading){   
-    if (!userID){
-        return
-    }
-    
-    let retryTimeout;
-    socket = io('ws://34.195.113.89/socket.io');
+async function load_chat(userName,userID,setIsLoading,setError){
+  let count = 0
+  if (!userID){
+    return
+  }
+  try{
+    socket = io('ws://34.195.113.89/socket.io',{
+        'reconnection': true,
+        'reconnectionDelay': 1000,
+        'reconnectionDelayMax' : 5000,
+        'reconnectionAttempts': 3
+    });
     content.ID = userID;
     content.username = userName;
     socket.on('connect', () => {
-	setIsLoading(true);
-        console.log('Successfully connected to the Socket.IO server!');
+      setIsLoading(true);
     });
-    console.log('loading');
-    console.log(content);
+    socket.on("connect_error", (err) => {
+      count+=1;
+      if (count === 3){
+	setIsLoading(false);
+	setError(`An error occurred. Please try reloading the page.`);
+      }      
+      
+    });
+    // console.log('loading');
+    // console.log(content);
     socket.emit('load',content);
     socket.on('load',(response) =>{
-	if(response === 'model loaded'){
-	    setIsLoading(false);
-	}
-
+      if(response === 'model loaded'){
+	setIsLoading(false);
+      }
+      
     });
+
+  }catch(error){
+    console.error('Error in load_chat:', error);
+    setIsLoading(false);
+    setError('An unexpected error occurred.');
+    
   }
+  
+}
 
 export function handleSignUp(e){
     const modal = document.querySelector(".modal");
@@ -38,7 +58,7 @@ export function handleSignUp(e){
     const form = document.querySelector("form") 
     const userInput = e.target.querySelector('input[type="text"]').value;
     e.target.reset() 
-    console.log('user is ', userInput)
+    // console.log('user is ', userInput)
     
 
 }
@@ -104,7 +124,9 @@ userMessage = '';
 }
 
 export function disconnectSocket(){
-    console.log('disconnecting')
-    socket.emit('disconnect_now','')
+    if (socket){
+	// console.log('disconnecting')
+	socket.emit('disconnect_now','')
+    }
 }
 export  {handleInput,load_chat}

@@ -8,17 +8,17 @@ import SignUp from "../components/SignUp";
 export const metadata = {
     title: "LoquiLabs | Chat",
     description: "Chat with LoquiAI",
-  };
+};
+
+
 let userName  = cookies().get('username') ? cookies().get('username').value : 'Guest'
 let userID = cookies().get('id') ?  cookies().get('id').value : undefined;
 export default function ChatPage(){
     // let userName = 
     async function onSubmitText(formData){
         'use server'
-        
         userName = formData.get('username')
         userID = Math.random().toString(16).slice(2)
-        console.log(userName)
         if(!userName){
             userName = 'Guest'
        }
@@ -30,22 +30,16 @@ export default function ChatPage(){
 
     
     return (
-<div className="chat-container">      
-        {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>}
-        <Sidebar userName={userName}/>
-        <div className="main-container">
-        <ChatBox />
-        <InputForm userName={userName} userID={userID} /> 
-        <Footer /> 
-        </div>
-        
-        
-         
-       
-        
-        
-
-</div>
-
+	<div className="chat-container">      
+	    {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>}
+	    <Sidebar userName={userName}/>
+	    <div className="main-container">
+		<ChatBox />
+		<InputForm userName={userName} userID={userID} /> 
+		<Footer /> 
+            </div>
+	    
+	</div>
+	
     )
 }

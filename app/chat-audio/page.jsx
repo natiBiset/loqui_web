@@ -16,7 +16,6 @@ export default function AudioChatPage(){
         'use server'      
         userName = formData.get('username')
         userID = Math.random().toString(16).slice(2)
-        console.log(userName)
         if(!userName){
             userName = 'Guest'
        }

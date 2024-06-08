@@ -1,3 +1,4 @@
+'use client'
 import "./ChatBox.css"
 import Loaders from "./Loader"
 import VideoPlayer from "./Videoplayer"

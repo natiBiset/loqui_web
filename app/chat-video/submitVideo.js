@@ -19,10 +19,10 @@ async function load_chat(userName,userID,setIsLoading){
     content.username = userName;  
     socket.on('connect', () => {
 	setIsLoading(true);
-        console.log('Successfully connected to the Socket.IO server!');
+        // console.log('Successfully connected to the Socket.IO server!');
     });
-    console.log('loading');
-    console.log(content);
+    // console.log('loading');
+    // console.log(content);
     socket.emit('load',content);
     socket.on('load',(response) =>{
 	setIsLoading(false)
@@ -30,8 +30,8 @@ async function load_chat(userName,userID,setIsLoading){
     });
 }
 export function disconnectSocket(){
-    console.log('disconnecting')
-    socket.emit('disconnect_now','')
+    if(socket){
+	socket.emit('disconnect_now','')}
 }
 
 function handleInput(userMessage){
@@ -134,7 +134,6 @@ function onVideoEnded(){
     }
     
     playing= false;
-    console.log("ended")   
     video.removeEventListener('ended',onVideoEnded)
     
     setTimeout(() => {

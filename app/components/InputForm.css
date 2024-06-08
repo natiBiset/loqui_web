@@ -50,6 +50,19 @@
     
 }
 
+.disabled-input{
+     cursor: not-allowed;
+}
+
+.error-message{
+    font-size: 1rem;
+    color: #000;
+    background: #fff;
+    max-width: fit-content;
+    padding-left: 1rem;
+    overflow-wrap: none;
+}
+
 /*tablet*/
 @media (max-width: 768px) {
         .input-form input[type="text"] {

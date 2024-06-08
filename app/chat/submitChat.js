@@ -25,7 +25,9 @@ async function load_chat(userName,userID,setIsLoading){
     console.log(content);
     socket.emit('load',content);
     socket.on('load',(response) =>{
-	setIsLoading(false);
+	if(response === 'model loaded'){
+	    setIsLoading(false);
+	}
 
     });
   }

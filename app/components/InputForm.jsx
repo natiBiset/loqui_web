@@ -19,8 +19,8 @@ export default function InputForm({userName,userID}){
         }
     )
     function handleSubmit(e){
-	if (!isLoading){
-            e.preventDefault();
+	e.preventDefault();
+	if (!isLoading){            
             const userInput = e.target.querySelector('input[type="text"]').value;
             e.target.reset()
             console.log(userInput)
@@ -28,6 +28,7 @@ export default function InputForm({userName,userID}){
         // return input_text
 
     }
+    
     return(
         <div className="input-form">
 	    {console.log(isLoading,", isloading")}
@@ -41,7 +42,7 @@ export default function InputForm({userName,userID}){
 	    
 	    
 	        <form onSubmit={handleSubmit}>
-		        <input type="text" id="message" placeholder="Start writing..." autoComplete="off" autoFocus/>
+		        <input type="text" id="message" placeholder="Start writing..." autoComplete="off" disabled = {isLoading} autoFocus/>
 		        <button type="submit" id="submitButton">
 		            <img src = "send.png" alt="Submit" />
 		        </button>

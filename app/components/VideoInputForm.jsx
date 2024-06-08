@@ -21,8 +21,8 @@ export default function VideoInputForm({userName,userID}){
         
     })
     function handleSubmit(e){
-	if (!isLoading){
-            e.preventDefault();
+	e.preventDefault();
+	if (!isLoading){            
             const userInput = e.target.querySelector('input[type="text"]').value;
             e.target.reset()
             console.log(userInput)
@@ -41,7 +41,7 @@ export default function VideoInputForm({userName,userID}){
 		<div className="loader"></div>
 	    </div>}
 	        <form onSubmit={handleSubmit}>
-		        <input type="text" id="message" placeholder="Start writting..." autoComplete="off" autoFocus/>
+		    <input type="text" id="message" placeholder="Start writting..." autoComplete="off" autoFocus disabled={isLoading}/>
 		        <button type="submit" id="submitButton">
 		            <img src = "send.png" alt="Submit" />
 		        </button>

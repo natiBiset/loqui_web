@@ -18,9 +18,10 @@ async function load_chat(userName,userID,setIsLoading){
     return
   }
     socket = io('ws://34.195.113.89/socket.io');
-  formData.append("ID",userID);
-  content.ID = userID
-  content.username = userName  
+    formData.append("ID",userID);
+    content.ID = userID
+    content.username = userName
+    console.log('username',userName)
     socket.on('connect', () => {
 	setIsLoading(true)
         console.log('Successfully connected to the Socket.IO server!');
@@ -31,7 +32,7 @@ async function load_chat(userName,userID,setIsLoading){
     socket.on('load',(response) =>{
         console.log(response)
 	setIsLoading(false)
-
+	
     });
 }
 export function disconnectSocket(){

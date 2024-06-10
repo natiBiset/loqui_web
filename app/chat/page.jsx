@@ -13,8 +13,10 @@ export const metadata = {
 
 
 export default function ChatPage(){
-  let userName  = cookies().get('username') ? cookies().get('username').value : 'Guest'
-  let userID = cookies().get('id') ?  cookies().get('id').value : undefined;
+  let userName ;
+  userName = cookies().get('username') ? cookies().get('username').value : 'Guest'
+  let userID;
+  userID = cookies().get('id') ?  cookies().get('id').value : undefined;
     // let userName = 
     async function onSubmitText(formData){
         'use server'

@@ -14,7 +14,7 @@ export async function POST(request) {
 
   return response;
 }
-export async function OPTIONS(request: Request) {
+export async function OPTIONS(request) {
   const allowedOrigin = request.headers.get("origin");
   const response = new NextResponse(null, {
     status: 200,

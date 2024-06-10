@@ -7,7 +7,7 @@ async headers() {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "*",
+            value: "http://localhost:3000",
           },
           // Allows for specific methods accepted
           {

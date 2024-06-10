@@ -5,6 +5,8 @@ async headers() {
       {
 	source: "/api/(.*)",
         headers: [
+	{ key: "Access-Control-Allow-Credentials",
+	  value: "true" },
           {
             key: "Access-Control-Allow-Origin",
             value: "http://localhost:3000",
@@ -17,10 +19,9 @@ async headers() {
           // Allows for specific headers accepted (These are a few standard ones)
           {
             key: "Access-Control-Allow-Headers",
-            value: "Content-Type, Authorization",
+            value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
           },
-	  { key: "Access-Control-Allow-Credentials",
-	  value: "true" },
+	  
         ],
       },
     ];

@@ -9,9 +9,10 @@ export const metadata = {
     description: "Audio chat with LoquiAI",
   };
 
-let userName  = cookies().get('username') ? cookies().get('username').value : 'Guest';
-let userID = cookies().get('id') ?  cookies().get('id').value : undefined;
-export default function AudioChatPage(){    
+
+export default function AudioChatPage(){
+  let userName  = cookies().get('username') ? cookies().get('username').value : 'Guest';
+  let userID = cookies().get('id') ?  cookies().get('id').value : undefined;
     async function onSubmitText(formData){
         'use server'      
         userName = formData.get('username')

@@ -10,9 +10,10 @@ export const metadata = {
     description: "Video chat with LoquiAI",
   };
 ;
-let userName  = cookies().get('username') ? cookies().get('username').value : 'Guest';
-let userID = cookies().get('id') ?  cookies().get('id').value : undefined;
+
 export default function ChatPage(){
+  let userName  = cookies().get('username') ? cookies().get('username').value : 'Guest';
+  let userID = cookies().get('id') ?  cookies().get('id').value : undefined;
     async function onSubmitText(formData){
         'use server'
         userName = formData.get('username')

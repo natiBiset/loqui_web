@@ -19,6 +19,8 @@ async headers() {
             key: "Access-Control-Allow-Headers",
             value: "Content-Type, Authorization",
           },
+	  { key: "Access-Control-Allow-Credentials",
+	  value: "true" },
         ],
       },
     ];

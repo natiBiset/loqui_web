@@ -6,43 +6,31 @@ import Footer from "../components/Footer";
 import SignUp from "../components/SignUp";
 
 export const metadata = {
-    title: "LoquiLabs | Chat",
-    description: "Chat with LoquiAI",
+  title: "LoquiLabs | Chat",
+  description: "Chat with LoquiAI",
 };
 
 
 
 export default function ChatPage(){
-  let userName ;
-  userName = cookies().get('username') ? cookies().get('username').value : 'Guest'
-  let userID;
-  userID = cookies().get('id') ?  cookies().get('id').value : undefined;
-    // let userName = 
-    async function onSubmitText(formData){
-        'use server'
-        userName = formData.get('username')
-        userID = Math.random().toString(16).slice(2)
-        if(!userName){
-            userName = 'Guest'
-       }
-       cookies().set('signedIn' ,true)
-       cookies().set('username' ,userName)
-       cookies().set('id',userID)
-       
-    }
+  const cookieStore = cookies();
+  const userName = cookieStore.get('username') ? cookies().get('username').value : 'Guest'
+  const userID = cookieStore.get('id') ?  cookies().get('id').value : undefined;
+  const isSignedIn = cookieStore.get('signedIn') ? cookieStore.get('signedIn').value : false;
 
+  
+  
+  return (
+    <div className="chat-container">      
+      {!isSignedIn && <SignUp/>}
+      <Sidebar userName={userName}/>
+      <div className="main-container">
+	<ChatBox />
+	<InputForm userName={userName} userID={userID} /> 
+	<Footer /> 
+      </div>
+      
+    </div>
     
-    return (
-	<div className="chat-container">      
-	    {!cookies().get('signedIn') && <SignUp  onSubmitText = {onSubmitText}/>}
-	    <Sidebar userName={userName}/>
-	    <div className="main-container">
-		<ChatBox />
-		<InputForm userName={userName} userID={userID} /> 
-		<Footer /> 
-            </div>
-	    
-	</div>
-	
-    )
+  )
 }

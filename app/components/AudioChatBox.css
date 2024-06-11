@@ -16,7 +16,23 @@
   width: 100%;
   flex: 1;
   border-radius:10px;
+  overflow-y: auto;
 }
+.chat-box::-webkit-scrollbar{
+    width: 5px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+.chat-box::-webkit-scrollbar-thumb {
+    background: #555;
+    
+}
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
 .audio-message-area{
   /* border: blue dashed 1px; */
   position: relative;
@@ -24,7 +40,7 @@
   width: 80%;
   height: 90%;
   max-height: 90%;
-  overflow-y: auto;
+  flex-shrink: 0;
   padding-bottom: 2rem;
   padding-right:1rem;
   padding-left: 1rem;
@@ -32,20 +48,6 @@
   
 }
 
-.audio-message-area::-webkit-scrollbar{
-    width: 5px;
-}
-
-.audio-message-area::-webkit-scrollbar-track {
-    background: transparent;
-}
-.audio-message-area::-webkit-scrollbar-thumb {
-    background: #555;
-    
-}
-.audio-message-area::-webkit-scrollbar-thumb:hover {
-  background: #fff;
-}
 .audio-player-container{
   /* border: white 1px dashed; */
   flex: 1;

@@ -15,6 +15,21 @@
     max-height: calc(90vh - 0.5rem);
     width: 100%;
     border-radius:10px;
+    overflow-y: auto;
+}
+.chat-box::-webkit-scrollbar{
+    width: 5px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+.chat-box::-webkit-scrollbar-thumb {
+    background: #555;
+    
+}
+.chat-box::-webkit-scrollbar-thumb:hover {
+  background: #fff;
 }
 
 .message-area{
@@ -23,7 +38,7 @@
     width: 100%;
     height: calc(82vh - 1rem);
     max-height: calc(82vh - 1rem);
-    overflow-y: auto;
+    flex-shrink:0;
     padding-bottom: 2rem;
     padding-right:11rem;
     padding-left: 3rem;

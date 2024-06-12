@@ -8,9 +8,9 @@ export default function Error({ error, reset }) {
     }, [error])
     
     return (
-	<div className=container>
-	    <div className=error-content>
-		<h1 className=error-message>
+	<div className="container">
+	    <div className="error-content">
+		<h1 className="error-message">
 		    {error.message}		    
 		</h1>		
 	    </div>

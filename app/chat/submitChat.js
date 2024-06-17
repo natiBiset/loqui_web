@@ -63,7 +63,8 @@ export function handleSignUp(e){
 
 }
 function handleInput(userMessage){
-    // const loaderNode = ReactDOM.render(<l-ring size='60' color="coral"></l-ring>, document.createElement('div'));
+  // const loaderNode = ReactDOM.render(<l-ring size='60' color="coral"></l-ring>, document.createElement('div'));
+  const chatBox = document.querySelector(".chat-box")
     const messageBox = document.querySelector(".message-area");
     const newMessage = document.createElement('div');
     const chatLoader = document.querySelector(".chat_loader");
@@ -89,7 +90,7 @@ function handleInput(userMessage){
             const interval = setInterval(() => {
             if ( i < reply.length ) {
                 replyMessage.innerHTML += reply[i];
-                messageBox.scrollTo(0,messageBox.scrollHeight)
+                chatBox.scrollTo(0,chatBox.scrollHeight)
                 i++;
                 } 
             else {

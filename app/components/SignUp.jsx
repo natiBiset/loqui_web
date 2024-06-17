@@ -25,7 +25,7 @@ export default function SignUp(){
     return (
         <div className="modal">
         <div className="modal-content">
-          <h1 className='modal-text'>Hey, what is you name?</h1>
+          <h1 className='modal-text'>Hey, what is your name?</h1>
           <form onSubmit={handleSubmit} className='modal-form'>
             <input type="text" value={username}  onChange={(e) => setUsername(e.target.value)} name="username" required placeholder='Username' autoComplete="off" autoFocus/>
             <button type="submit">Start Chat</button>

@@ -65,69 +65,69 @@ export function handleSignUp(e){
 function handleInput(userMessage){
   // const loaderNode = ReactDOM.render(<l-ring size='60' color="coral"></l-ring>, document.createElement('div'));
   const chatBox = document.querySelector(".chat-box")
-    const messageBox = document.querySelector(".message-area");
-    const newMessage = document.createElement('div');
-    const chatLoader = document.querySelector(".chat_loader");
-    document.getElementById("message").placeholder = "Continue writing...";
-    chatLoader.style.display = "block";
-    newMessage.classList.add('user-message');
-    newMessage.textContent = userMessage;
-    messageBox.appendChild(newMessage);
-    messageBox.scrollTo(0,messageBox.scrollHeight)
-    // messageBox.appendChild(loaderNode)
-    const replyMessage = document.createElement('div');
-    replyMessage.classList.add('ai-message');
-    content.message = userMessage;
-    socket.off('message')
-    socket.emit('message',content);
-    let reply = ''
-    socket.on('message', (response) =>{
-              
-        if (response.content){
-            reply = response.content
-            let i = 0;
-            chatLoader.style.display = "none";
-            const interval = setInterval(() => {
-            if ( i < reply.length ) {
-                replyMessage.innerHTML += reply[i];
-                chatBox.scrollTo(0,chatBox.scrollHeight)
-                i++;
-                } 
-            else {
-                // messageBox.scrollTo(0,messageBox.scrollHeight)
-                document.querySelector('input').disabled = false;
-                document.getElementById("message").focus();
-                document.querySelector('input').style.cursor = 'text';
-                
-                clearInterval(interval);
-                
-            }
-          }, 50);
-          messageBox.appendChild(replyMessage);	
+  const messageBox = document.querySelector(".message-area");
+  const newMessage = document.createElement('div');
+  const chatLoader = document.querySelector(".chat_loader");
+  document.getElementById("message").placeholder = "Continue writing...";
+  chatLoader.style.display = "block";
+  newMessage.classList.add('user-message');
+  newMessage.textContent = userMessage;
+  messageBox.appendChild(newMessage);
+  chatBox.scrollTo(0,chatBox.scrollHeight)
+  // messageBox.appendChild(loaderNode)
+  const replyMessage = document.createElement('div');
+  replyMessage.classList.add('ai-message');
+  content.message = userMessage;
+  socket.off('message')
+  socket.emit('message',content);
+  let reply = ''
+  socket.on('message', (response) =>{
     
+    if (response.content){
+      reply = response.content
+      let i = 0;
+      chatLoader.style.display = "none";
+      const interval = setInterval(() => {
+        if ( i < reply.length ) {
+          replyMessage.innerHTML += reply[i];
+          chatBox.scrollTo(0,chatBox.scrollHeight)
+          i++;
+        } 
+        else {
+          // messageBox.scrollTo(0,messageBox.scrollHeight)
+          document.querySelector('input').disabled = false;
+          document.getElementById("message").focus();
+          document.querySelector('input').style.cursor = 'text';
           
-    
-}
-document.querySelector('input').disabled = true;
-document.querySelector('input').style.cursor = 'not-allowed';
-userMessage = '';
-}
-)
-
-
-    // replyMessage.textContent = response.content
-    // messageBox.appendChild(replyMessage);
-    // messageBox.scrollTop = messageBox.scrollHeight;
-
-    // replyMessage.textContent = userMessage.toUpperCase();
-    // messageBox.appendChild(replyMessage);
-    // messageBox.scrollTop = messageBox.scrollHeight;
+          clearInterval(interval);
+          
+        }
+      }, 50);
+      messageBox.appendChild(replyMessage);	
+      
+      
+      
+    }
+    document.querySelector('input').disabled = true;
+    document.querySelector('input').style.cursor = 'not-allowed';
+    userMessage = '';
+  }
+	   )
+  
+  
+  // replyMessage.textContent = response.content
+  // messageBox.appendChild(replyMessage);
+  // messageBox.scrollTop = messageBox.scrollHeight;
+  
+  // replyMessage.textContent = userMessage.toUpperCase();
+  // messageBox.appendChild(replyMessage);
+  // messageBox.scrollTop = messageBox.scrollHeight;
 }
 
 export function disconnectSocket(){
-    if (socket){
-	// console.log('disconnecting')
-	socket.emit('disconnect_now','')
-    }
+  if (socket){
+    // console.log('disconnecting')
+    socket.emit('disconnect_now','')
+  }
 }
 export  {handleInput,load_chat}

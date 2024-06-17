@@ -960,105 +960,106 @@ function audioRecorder(stream) {
         method:"POST",
         body:formData,
     })
-    .then(response => response.json())
+	.then(response => response.json())
         .then(text => {if (text['text'].trim()){
-            let message = text['text'];
-            socket.off('message')
-            formData.delete('audio');
-            const messageBox = document.querySelector(".audio-message-area");
-            const newMessage = document.createElement('div');            
-            const audio = document.createElement('audio');
-	          const replyMessage = document.createElement('div');
-	          newMessage.classList.add('user-message');
-	          replyMessage.classList.add('ai-message');
-            // const audioLoader = document.querySelector(".audio_loader");
-            // audioLoader.style.display = 'block'
-	          newMessage.textContent = message;
-	          messageBox.appendChild(newMessage);
-            messageBox.scrollTo(0,messageBox.scrollHeight)
-            content.message = message;
-            socket.emit('message',content);
-            recordButton.classList.remove('.active')
-            recordButton.setAttribute('class', '');
-            const audioAnim = document.querySelectorAll('.bar')
-            audioAnim.forEach((bar) => {
-              bar.classList.remove('listening');
-              bar.classList.remove('speaking')
-              bar.classList.add('thinking')
-              });
-            // audioLoader.style.display = 'block'
-            let reply = {'text':[],'audio':[]}
-            let typing = false;
-            let playing = false;
-            let replye;
-            let last = false;
-            socket.on('message',(response2)=>{
-              if (response2 === 'stopToken'){
-                last = true;
-                // audioLoader.style.display = 'none'
-              }
-              if (typeof response2 === 'string' && response2 !== 'stopToken'){
-                reply['text'].push(response2)
-                animateStream() 
-              }
-                
-              else if(typeof response2  !== 'string' && response2 !== 'stopToken'){
-                reply['audio'].push(response2)
-                playNextAudio()
-              }
+          let message = text['text'];
+          socket.off('message')
+          formData.delete('audio');
+	  const chatBox = document.querySelector(".chat-box")
+          const messageBox = document.querySelector(".audio-message-area");
+          const newMessage = document.createElement('div');            
+          const audio = document.createElement('audio');
+	  const replyMessage = document.createElement('div');
+	  newMessage.classList.add('user-message');
+	  replyMessage.classList.add('ai-message');
+          // const audioLoader = document.querySelector(".audio_loader");
+          // audioLoader.style.display = 'block'
+	  newMessage.textContent = message;
+	  messageBox.appendChild(newMessage);
+          chatBox.scrollTo(0,chatBox.scrollHeight)
+          content.message = message;
+          socket.emit('message',content);
+          recordButton.classList.remove('.active')
+          recordButton.setAttribute('class', '');
+          const audioAnim = document.querySelectorAll('.bar')
+          audioAnim.forEach((bar) => {
+            bar.classList.remove('listening');
+            bar.classList.remove('speaking')
+            bar.classList.add('thinking')
+          });
+          // audioLoader.style.display = 'block'
+          let reply = {'text':[],'audio':[]}
+          let typing = false;
+          let playing = false;
+          let replye;
+          let last = false;
+          socket.on('message',(response2)=>{
+            if (response2 === 'stopToken'){
+              last = true;
+              // audioLoader.style.display = 'none'
             }
-              
-            )
-function animateStream(){
-    if(!typing && reply['text'].length > 0){
-         typing = true
-             
-         replye = reply['text'].shift()
-         let i = 0;
-         const interval = setInterval(() => {
-         if ( i < replye.length ) {
-            replyMessage.innerHTML += replye[i];
-            messageBox.scrollTo(0,messageBox.scrollHeight)
-            i++;
+            if (typeof response2 === 'string' && response2 !== 'stopToken'){
+              reply['text'].push(response2)
+              animateStream() 
             }
-         else {
-            clearInterval(interval);
-            typing  = false;
             
-            animateStream()        
-                          }
-                      },
-                       50);
-                       messageBox.appendChild(replyMessage);
-              }
-          }
-function playNextAudio(){
-            if (!playing && reply['audio'].length > 0){
-                const replye = reply['audio'].shift()
-                playing = true;
-                // audioLoader.style.display = 'none'
-                const blob = new Blob([replye]);
-                const audioURL = URL.createObjectURL(blob);
-                setTimeout(() => {
-                    audioAnim.forEach((bar) => {
-                    bar.classList.remove('listening');
-                    bar.classList.remove('thinking');
-                    bar.classList.add('speaking')
-                    });
-                    
-                    audio.load()
-                    audio.src = audioURL;
-                    audio.play().catch((e)=>{console.log("playing eror, ",e)});
-                    audio.addEventListener('ended',onAudioEnded)
-                    
-                }
-                ,300)
-                
-                
-        
+            else if(typeof response2  !== 'string' && response2 !== 'stopToken'){
+              reply['audio'].push(response2)
+              playNextAudio()
             }
-        
-        }
+          }
+		    
+		   )
+	  function animateStream(){
+	    if(!typing && reply['text'].length > 0){
+              typing = true
+              
+              replye = reply['text'].shift()
+              let i = 0;
+              const interval = setInterval(() => {
+		if ( i < replye.length ) {
+		  replyMessage.innerHTML += replye[i];
+		  chatBox.scrollTo(0,chatBox.scrollHeight)
+		  i++;
+		}
+		else {
+		  clearInterval(interval);
+		  typing  = false;
+		  
+		  animateStream()        
+                }
+              },
+					   50);
+              messageBox.appendChild(replyMessage);
+            }
+          }
+	  function playNextAudio(){
+            if (!playing && reply['audio'].length > 0){
+              const replye = reply['audio'].shift()
+              playing = true;
+              // audioLoader.style.display = 'none'
+              const blob = new Blob([replye]);
+              const audioURL = URL.createObjectURL(blob);
+              setTimeout(() => {
+                audioAnim.forEach((bar) => {
+                  bar.classList.remove('listening');
+                  bar.classList.remove('thinking');
+                  bar.classList.add('speaking')
+                });
+                
+                audio.load()
+                audio.src = audioURL;
+                audio.play().catch((e)=>{console.log("playing eror, ",e)});
+                audio.addEventListener('ended',onAudioEnded)
+                
+              }
+			 ,300)
+              
+              
+              
+            }
+            
+          }
 function onAudioEnded(){
     if(last){
       // console.log('restart recording')

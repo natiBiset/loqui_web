@@ -50,7 +50,8 @@
 
 .video-player-container{
   /* border: white 1px dashed;  */
-  flex: 1;
+    flex: 1;
+    position: fixed;
 
   /* width: 100%; */
 }

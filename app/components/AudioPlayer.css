@@ -11,6 +11,7 @@
     width: 7rem;
     height: 7rem;
     box-shadow: 2px 2px 4px #999;
+    position: fixed;
     /* margin-left: 83%; */
     /* top: 2%;
     right: 10%; */

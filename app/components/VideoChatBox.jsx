@@ -10,7 +10,7 @@ export default function VideoChatBox(){
     return (
     <div className="chat-box">
         {/* */}
-        <Loaders page = {'chat'} />
+
 	    <div className="video-message-area"> </div>
         <div className="video-player-container">
         <VideoPlayer /> 

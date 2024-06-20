@@ -1,47 +1,56 @@
-/* HTML: <div class="loader"></div> */
-.chat_loader {
-  display: block;
-  position: absolute;
-  left: 10px;
-  bottom: 4px;
-  width: 10px;
-  padding: 8px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #fff;
-  --_m: 
-    conic-gradient(#0000 10%,#000),
-    linear-gradient(#000 0 0) content-box;
-  -webkit-mask: var(--_m);
-          mask: var(--_m);
-  -webkit-mask-composite: source-out;
-          mask-composite: subtract;
-  animation: l3 1s infinite linear;
+.chat_loader_container{
+    height: 1rem;
+    /* margin-top: 100%; */
+    padding-left: 1rem;
+    
 }
-@keyframes l3 {to{transform: rotate(1turn)}}
-  
-  .video_loader {
-    /* position: absolute; */
+.chat_loader {
     display: block;
-    /* width: 30px; */
+    position: absolute;
     width: 10px;
-    left: 139px;
-    top:6px ;
     padding: 8px;
     aspect-ratio: 1;
     border-radius: 50%;
     background: #fff;
     --_m: 
-      conic-gradient(#0000 10%,#000),
-      linear-gradient(#000 0 0) content-box;
+	conic-gradient(#0000 10%,#000),
+	linear-gradient(#000 0 0) content-box;
     -webkit-mask: var(--_m);
-            mask: var(--_m);
+    mask: var(--_m);
     -webkit-mask-composite: source-out;
-            mask-composite: subtract;
+    mask-composite: subtract;
     animation: l3 1s infinite linear;
-  }
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
 
-  .audio_loader {
+.video_loader-container{
+    height: 1rem;
+    /* margin-top: 100%; */
+    padding-left: 1rem;
+    
+}
+.video_loader {
+    /* position: absolute; */
+    display: block;
+    /* width: 30px; */
+    width: 10px;
+    /* left: 139px; */
+    /* top:6px ; */
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #fff;
+    --_m: 
+	conic-gradient(#0000 10%,#000),
+	linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: l3 1s infinite linear;
+}
+
+.audio_loader {
     position: absolute;
     display: block;
     /* width: 30px; */
@@ -54,30 +63,30 @@
     /* border: 5px solid; */
     background: #fff;
     --_m: 
-      conic-gradient(#0000 10%,#000),
-      linear-gradient(#000 0 0) content-box;
+	conic-gradient(#0000 10%,#000),
+	linear-gradient(#000 0 0) content-box;
     -webkit-mask: var(--_m);
-            mask: var(--_m);
+    mask: var(--_m);
     -webkit-mask-composite: source-out;
-            mask-composite: subtract;
+    mask-composite: subtract;
     animation: l3 1s infinite linear;
-  }
+}
 #audio-bars {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50%;
-/*     background: black; */
+    /*     background: black; */
 }
 .bar.speaking{
-  background: #52467b;
-  bottom: 1px;
-  height: 2px;
-  width: 6px;
-  margin: -40px 4px;
-  border-radius: 5px;
-  animation: sound 0ms -600ms linear infinite alternate;
-  /* animation-duration: 2s; */
+    background: #52467b;
+    bottom: 1px;
+    height: 2px;
+    width: 6px;
+    margin: -40px 4px;
+    border-radius: 5px;
+    animation: sound 0ms -600ms linear infinite alternate;
+    /* animation-duration: 2s; */
 }
 .bar.listening{
     background: #52467b;
@@ -89,48 +98,48 @@
     animation: silence 0ms -600ms linear infinite alternate;;
 }
 .bar.thinking{
-  background: #52467b;
-  bottom: 1px;
-  height: 2px;
-  width: 6px;
-  margin: 0px 4px;
-  border-radius: 5px;
-  animation: think 1.2s infinite ease-in-out;
-
+    background: #52467b;
+    bottom: 1px;
+    height: 2px;
+    width: 6px;
+    margin: 0px 4px;
+    border-radius: 5px;
+    animation: think 1.2s infinite ease-in-out;
+    
 }
 
 @keyframes sound {
-  0% {
-     opacity: .35;
-      height: 3px; 
-  }
-  50%{
-    opacity: .8;
-    height: -30px; 
-  }
-  100% {
-      opacity: 1;       
-      height: 40px;        
-  }
+    0% {
+	opacity: .35;
+	height: 3px; 
+    }
+    50%{
+	opacity: .8;
+	height: -30px; 
+    }
+    100% {
+	opacity: 1;       
+	height: 40px;        
+    }
 }
 @keyframes silence {
-  0% {
-     opacity: .35;
-      height: 3px; 
-  }
-  100% {
-      opacity: 1;       
-      height: 3px;        
-  }
+    0% {
+	opacity: .35;
+	height: 3px; 
+    }
+    100% {
+	opacity: 1;       
+	height: 3px;        
+    }
 }
 @keyframes think {
-  0%, 100% { transform: scale(2); }
-  50% { transform: scale(1.5); }
+    0%, 100% { transform: scale(2); }
+    50% { transform: scale(1.5); }
 }
 
 @keyframes moveHorizontal {
-  0%, 100% { transform: translateX(-3px); }
-  50% { transform: translateX(3px); }
+    0%, 100% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
 }
 
 
@@ -148,14 +157,13 @@
 
 /*mobile*/
 @media (max-width: 480px) {
- .bar:nth-child(1)  { display: none }
-  .bar:nth-child(9)  { display: none }
-  .bar:nth-child(10) { display: none }
-
+    .bar:nth-child(1)  { display: none }
+    .bar:nth-child(9)  { display: none }
+    .bar:nth-child(10) { display: none }
+    
 }
 @media (max-width: 768px) {
- .bar:nth-child(1)  { left: 1px; animation-duration: 474ms;}
-  .bar:nth-child(9)  { left: 113px; animation-duration: 487ms; }
-  .bar:nth-child(10) { display: none }
-
+    .bar:nth-child(1)  { left: 1px; animation-duration: 474ms;}
+    .bar:nth-child(9)  { left: 113px; animation-duration: 487ms; }
+    .bar:nth-child(10) { display: none }
 }

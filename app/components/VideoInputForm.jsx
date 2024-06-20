@@ -3,6 +3,7 @@ import './InputForm.css'
 import {handleInput} from '../chat-video/submitVideo';
 import { useEffect,useState ,useRef} from "react"
 import { load_chat,disconnectSocket } from '../chat-video/submitVideo';
+import Loaders from './Loader';
 
 
 export default function VideoInputForm({userName,userID}){
@@ -40,12 +41,13 @@ export default function VideoInputForm({userName,userID}){
 		</div>
 		<div className="loader"></div>
 	    </div>}
-	        <form onSubmit={handleSubmit}>
-		    <input type="text" id="message" placeholder="Start writting..." autoComplete="off" autoFocus disabled={isLoading}/>
-		        <button type="submit" id="submitButton">
-		            <img src = "send.png" alt="Submit" />
-		        </button>
-	        </form>
-	    </div> 
+	  <Loaders page = {'chat'} />
+	  <form onSubmit={handleSubmit}>
+	    <input type="text" id="message" placeholder="Start writting..." autoComplete="off" autoFocus disabled={isLoading}/>
+	    <button type="submit" id="submitButton">
+	      <img src = "send.png" alt="Submit" />
+	    </button>
+	  </form>
+	</div> 
     )
 }

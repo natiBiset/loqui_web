@@ -4,7 +4,7 @@ import {handleInput} from '../chat/submitChat';
 import { useEffect,useState ,useRef} from "react"
 import { load_chat } from '../chat/submitChat';
 import {disconnectSocket} from '../chat/submitChat'
-
+import Loaders from "./Loader"
 
 export default function InputForm({userName,userID}){
   const [isLoading,setIsLoading] = useState(true);
@@ -42,6 +42,7 @@ export default function InputForm({userName,userID}){
 	</div>}
       
       {error && <div className="error-message">{error}</div>}
+      	  <Loaders page = {'chat'} />
       <form onSubmit={handleSubmit}>
 	<input type="text" id="message" placeholder="Start writing..." autoComplete="off" disabled = {isLoading || error} autoFocus className={(isLoading || error) ? 'disabled-input' : ''}/>
 	<button type="submit" id="submitButton">

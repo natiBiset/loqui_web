@@ -39,7 +39,6 @@ async function load_chat(userName,userID,setIsLoading,setError){
     socket.on('load',(response) =>{
       if(response === 'model loaded'){
 	setIsLoading(false);
-	document.getElementById('message').focus()
       }
       
     });

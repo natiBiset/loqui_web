@@ -17,6 +17,7 @@ export default function InputForm({userName,userID}){
     ()=>{if(!isLoaded.current){
       isLoaded.current = true;
       load_chat(userName,userID,setIsLoading,setError);
+      document.getElementById('message').focus()
       window.onbeforeunload = ()=>disconnectSocket()}
         }
   )
